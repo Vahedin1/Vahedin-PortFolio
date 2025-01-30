@@ -13,13 +13,13 @@ const projects = [
   },
   {
     name: "Project 2",
-    image: "/assets/project.png",
+    image: "/assets/project3.png",
     skills: [faReact, faNodeJs, faHtml5],
     link: "/projects/project-2",
   },
   {
     name: "Project 3",
-    image: "/assets/project.png",
+    image: "/assets/project3.png",
     skills: [faReact, faNodeJs, faHtml5],
     link: "/projects/project-3",
   },
@@ -31,13 +31,13 @@ const projects = [
   },
   {
     name: "Project 2",
-    image: "/assets/project.png",
+    image: "/assets/project3.png",
     skills: [faReact, faNodeJs, faHtml5],
     link: "/projects/project-2",
   },
   {
     name: "Project 3",
-    image: "/assets/project.png",
+    image: "/assets/project3.png",
     skills: [faReact, faNodeJs, faHtml5],
     link: "/projects/project-3",
   },
@@ -45,7 +45,7 @@ const projects = [
 
 const Projects = () => {
   useEffect(() => {
-    document.body.style.backgroundImage = "url('/assets/Project.png')";
+    document.body.style.backgroundImage = "url('/assets/project.png')";
     document.body.style.backgroundSize = "cover";
     document.body.style.backgroundPosition = "top";
     document.body.style.backgroundAttachment = "local";
