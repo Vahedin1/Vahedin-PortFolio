@@ -2,17 +2,19 @@
 npm create vite@latest my-portfolio -- --template react        
 vite + react + js
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+
 ///////////////////////////////////////////////////////////////////////////////
 
 
 
+https://www.linkedin.com/in/vahedin-hamidovic-790251338/
+https://github.com/Vahedin1
+hamidovicvahedin1@gmail.com
 
+About me:
+I am a passionate Python Developer and Front-End Developer with hands-on experience in building dynamic web applications using React JS and Material UI. Currently, I am advancing my skills through the Microsoft Development Program at IT Academy.
 
-
-
-
+Let's connect and collaborate on exciting projects!
 
 
 
@@ -29,3 +31,4 @@ Set-ExecutionPolicy -ExecutionPolicy Bypass -Scope LocalMachine -Force
 
 git config --global user.name "Vahedin1"
 git config --global user.email "hamidovicvahedin1@gmail.com"
+git config --global --list
