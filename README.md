@@ -18,7 +18,6 @@ Let's connect and collaborate on exciting projects!
 
 
 
-
 ///////////////////////////////////////////////////////////////////////////////
 Error fix for npm and npx:
 Method 1: 

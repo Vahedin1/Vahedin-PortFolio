@@ -1,3 +1,4 @@
+import React, { useEffect } from "react";
 import {
   Container,
   Typography,
@@ -6,14 +7,23 @@ import {
   ListItemText,
   Divider,
   Box,
+  Avatar,
 } from "@mui/material";
-import { Phone, Email, LinkedIn } from "@mui/icons-material";
-
-backgroundImage: "url(/path/to/your/image.jpg)";
 
 const Home = () => {
+  useEffect(() => {
+    document.body.style.backgroundImage = "url('/assets/Home-Blue.png')";
+    document.body.style.backgroundSize = "cover";
+    document.body.style.backgroundPosition = "top";
+    document.body.style.backgroundAttachment = "local";
+
+    return () => {
+      document.body.style.backgroundImage = ""; // Clean up when the component unmounts
+    };
+  }, []);
+
   return (
-    <Container maxWidth="lg" style={{ padding: "20px" }}>
+    <Box sx={{ padding: "20px", marginTop: 100, textAlign: "center" }}>
       <Typography variant="h4" gutterBottom>
         About Me
       </Typography>
@@ -21,12 +31,7 @@ const Home = () => {
         I am a passionate Python Developer and Front-End Developer with hands-on
         experience in building dynamic web applications using React JS and
         Material UI. Currently, I am advancing my skills through the Microsoft
-        Development Program at IT Academy.
-
-        Languages:
-        Bosnian
-        English
-        Serbian
+        Development Program at IT Academy. Languages: Bosnian, English, Serbian.
       </Typography>
       <Typography variant="body1">
         Let's connect and collaborate on exciting projects!
@@ -75,62 +80,8 @@ const Home = () => {
           </ListItem>
         </List>
       </Box>
-    
-      {/* 
-      <Divider style={{ margin: "20px 0" }} />
-      <Typography variant="h5" gutterBottom>
-        Experience
-      </Typography>
-      <List>
-        <ListItem>
-          <ListItemText
-            primary="None"
-            secondary=" "
-          />
-        </ListItem>
-      </List>
-      <Divider style={{ margin: "20px 0" }} />
-*/}
-    </Container>
+    </Box>
   );
-};
-
-const styles = {
-  footer: {
-    textAlign: "center",
-    backgroundColor: "transparent",
-    color: "white",
-    padding: "20px 0",
-    marginTop: "auto",
-  },
-  contactContainer: {
-    marginBottom: "10px",
-  },
-  header: {
-    marginBottom: "10px",
-  },
-  links: {
-    display: "flex",
-    justifyContent: "center",
-    gap: "20px",
-    marginBottom: "15px",
-  },
-  link: {
-    color: "white",
-    textDecoration: "none",
-    fontSize: "18px",
-  },
-  icon: {
-    marginRight: "8px",
-  },
-  copyright: {
-    marginTop: "10px",
-    fontSize: "14px",
-  },
-  copyrightLink: {
-    color: "#ddd",
-    textDecoration: "none",
-  },
 };
 
 export default Home;
