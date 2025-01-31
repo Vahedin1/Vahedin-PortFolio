@@ -12,6 +12,7 @@ import {
 import { useTheme } from "@mui/material/styles";
 import { useNavigate, useLocation } from "react-router-dom";
 import DownloadIcon from "@mui/icons-material/Download";
+import { motion } from "framer-motion";
 
 const skills = [
   {
@@ -162,167 +163,170 @@ const Home = () => {
       maxWidth="md"
       sx={{ textAlign: "center", mt: 10, fontFamily: "Roboto, sans-serif" }}
     >
-      <Card sx={cardStyle}>
-        <Typography variant="h4" fontWeight="bold">
-          Hi, I'm Vahedin Hamidović
-        </Typography>
-        <Typography variant="body1" paragraph>
-          I am Software Developer
-        </Typography>
-        <Button
-          variant="contained"
-          color="primary"
-          onClick={() => scrollToSection("contact")}
-          sx={{
-            marginBottom: "20px",
+      <motion.div
+        initial={{ opacity: 0, y: -30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6}}
+      >
+        <Card sx={cardStyle}>
+          <Typography variant="h4" fontWeight="bold">
+            Hi, I'm Vahedin Hamidović
+          </Typography>
+          <Typography variant="body1" paragraph>
+            I am Software Developer
+          </Typography>
+          <Button
+            variant="contained"
+            color="primary"
+            onClick={() => scrollToSection("contact")}
+            sx={{
+              marginBottom: "20px",
+            }}
+          >
+            Connect
+          </Button>
+        </Card>
 
-          }}
-        >
-          Connect
-        </Button>
-      </Card>
-
-      <Card sx={cardStyle}>
-        <Grid container spacing={2} alignItems="center">
-          <Grid item xs={12} sm={4}>
-            {/* 
+        <Card sx={cardStyle}>
+          <Grid container spacing={2} alignItems="center">
+            <Grid item xs={12} sm={4}>
+              {/* 
             <Avatar
               alt="Vahedin Hamidović"
               src="/assets/Vahedin.png"
               sx={{ width: 120, height: 120, margin: "auto" }}
             />
             */}
-          </Grid>
-          <Grid item xs={12} sm={12}>
-            <Typography variant="h4" fontWeight="bold" gutterBottom>
-              ABOUT ME
-            </Typography>
-            <Typography variant="body1" paragraph>
-              Hello, my name is Vahedin Hamidović. I am a Software Developer
-              from Serbia - Sjenica. Currently, I am unemployed. I love working
-              on a variety of technologies including Web Development and Mobile
-              App Development.
-            </Typography>
-            <Button
-              variant="contained"
-              startIcon={<DownloadIcon />}
-              sx={{
-                mt: 2,
-              }}
-              onClick={() => {
-                const link = document.createElement("a");
-                link.href = "/assets/CV Vahedin Hamidovic - E.pdf"; // Update with the actual path to your CV file
-                link.download = "CV Vahedin Hamidovic - E.pdf"; // The filename for download
-                document.body.appendChild(link);
-                link.click();
-                document.body.removeChild(link);
-              }}
-            >
-              Download CV
-            </Button>
-          </Grid>
-        </Grid>
-      </Card>
-
-      <Card id={"skills"} sx={cardStyle}>
-        <Typography
-          variant="h4"
-          fontWeight="bold"
-          textAlign="center"
-          gutterBottom
-        >
-          SKILLS
-        </Typography>
-        {skills.map((section, index) => (
-          <Box key={index} sx={{ mb: 5 }}>
-            <Typography variant="h6" fontWeight="bold">
-              {section.category}
-            </Typography>
-            {section.skills.map((skill, i) => (
-              <Grid
-                container
-                key={i}
-                alignItems="center"
-                spacing={2}
-                sx={{ mb: 1 }}
+            </Grid>
+            <Grid item xs={12} sm={12}>
+              <Typography variant="h4" fontWeight="bold" gutterBottom>
+                ABOUT ME
+              </Typography>
+              <Typography variant="body1" paragraph>
+                Hello, my name is Vahedin Hamidović. I am a Software Developer
+                from Serbia - Sjenica. Currently, I am unemployed. I love
+                working on a variety of technologies including Web Development
+                and Mobile App Development.
+              </Typography>
+              <Button
+                variant="contained"
+                startIcon={<DownloadIcon />}
+                sx={{
+                  mt: 2,
+                }}
+                onClick={() => {
+                  const link = document.createElement("a");
+                  link.href = "/assets/CV Vahedin Hamidovic - E.pdf"; // Update with the actual path to your CV file
+                  link.download = "CV Vahedin Hamidovic - E.pdf"; // The filename for download
+                  document.body.appendChild(link);
+                  link.click();
+                  document.body.removeChild(link);
+                }}
               >
-                {/* Skill Name */}
-                <Grid item xs={3}>
-                  <Typography variant="body1" sx={{ textAlign: "left" }}>
-                    {skill.name}
-                  </Typography>
-                </Grid>
+                Download CV
+              </Button>
+            </Grid>
+          </Grid>
+        </Card>
 
-                {/* Progress Bar */}
+        <Card id={"skills"} sx={cardStyle}>
+          <Typography
+            variant="h4"
+            fontWeight="bold"
+            textAlign="center"
+            gutterBottom
+          >
+            SKILLS
+          </Typography>
+          {skills.map((section, index) => (
+            <Box key={index} sx={{ mb: 5 }}>
+              <Typography variant="h6" fontWeight="bold">
+                {section.category}
+              </Typography>
+              {section.skills.map((skill, i) => (
                 <Grid
-                  item
-                  xs={7}
-                  sx={{ display: "flex", alignItems: "center" }}
+                  container
+                  key={i}
+                  alignItems="center"
+                  spacing={2}
+                  sx={{ mb: 1 }}
                 >
-                  <LinearProgress
-                    variant="determinate"
-                    value={skill.level}
-                    sx={{
-                      flexGrow: 1,
-                      height: 8,
-                      borderRadius: 2,
-                      bgcolor: "white",
-                      width: "100%", // Ensures all bars are the same length
-                    }}
-                  />
-                </Grid>
+                  {/* Skill Name */}
+                  <Grid item xs={3}>
+                    <Typography variant="body1" sx={{ textAlign: "left" }}>
+                      {skill.name}
+                    </Typography>
+                  </Grid>
 
-                {/* Percentage */}
-                <Grid item xs={2}>
-                  <Typography
-                    variant="body1"
-                    sx={{ textAlign: "right", minWidth: 40 }}
+                  {/* Progress Bar */}
+                  <Grid
+                    item
+                    xs={7}
+                    sx={{ display: "flex", alignItems: "center" }}
                   >
-                    {skill.level}%
-                  </Typography>
+                    <LinearProgress
+                      variant="determinate"
+                      value={skill.level}
+                      sx={{
+                        flexGrow: 1,
+                        height: 8,
+                        borderRadius: 2,
+                        bgcolor: "white",
+                        width: "100%", // Ensures all bars are the same length
+                      }}
+                    />
+                  </Grid>
+
+                  {/* Percentage */}
+                  <Grid item xs={2}>
+                    <Typography
+                      variant="body1"
+                      sx={{ textAlign: "right", minWidth: 40 }}
+                    >
+                      {skill.level}%
+                    </Typography>
+                  </Grid>
                 </Grid>
-              </Grid>
-            ))}
-          </Box>
-        ))}
-        <Button
-          variant="contained"
-          onClick={() => navigate("/projects")}
-          sx={{
-            mt: 2,
+              ))}
+            </Box>
+          ))}
+          <Button
+            variant="contained"
+            onClick={() => navigate("/projects")}
+            sx={{
+              mt: 2,
+            }}
+          >
+            CHECK OUT MY PROJECTS
+          </Button>
+        </Card>
 
-          }}
-        >
-          CHECK OUT MY PROJECTS
-        </Button>
-      </Card>
-
-      <Card sx={cardStyle}>
-        <Typography variant="h4" fontWeight="bold" gutterBottom>
-          EDUCATION
-        </Typography>
-        <Typography variant="body1" paragraph>
-          IT ACADEMY
-        </Typography>
-        <Typography variant="body1" paragraph>
-          Python Developer - Graduated 2024
-        </Typography>
-        <Typography variant="body1">
-          Microsoft Development Program - Currently Enrolled
-        </Typography>
-        <Button
-          variant="contained"
-          color="primary"
-          onClick={() => navigate("/certifications")}
-          sx={{
-            marginBottom: "20px",
-            marginTop: "20px",
-
-          }}
-        >
-          Certifications
-        </Button>
-      </Card>
+        <Card sx={cardStyle}>
+          <Typography variant="h4" fontWeight="bold" gutterBottom>
+            EDUCATION
+          </Typography>
+          <Typography variant="body1" paragraph>
+            IT ACADEMY
+          </Typography>
+          <Typography variant="body1" paragraph>
+            Python Developer - Graduated 2024
+          </Typography>
+          <Typography variant="body1">
+            Microsoft Development Program - Currently Enrolled
+          </Typography>
+          <Button
+            variant="contained"
+            color="primary"
+            onClick={() => navigate("/certifications")}
+            sx={{
+              marginBottom: "20px",
+              marginTop: "20px",
+            }}
+          >
+            Certifications
+          </Button>
+        </Card>
+      </motion.div>
     </Container>
   );
 };

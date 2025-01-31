@@ -11,6 +11,7 @@ import MenuIcon from "@mui/icons-material/Menu";
 import { Link, useNavigate } from "react-router-dom";
 import CloseIcon from "@mui/icons-material/Close";
 import { useTheme } from "@mui/material/styles";
+import { motion } from "framer-motion";
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -77,6 +78,32 @@ const Navbar = () => {
 
   const closeMenu = () => {
     setMenuOpen(false);
+  };
+  const DropAnimation = () => {
+    return (
+      <motion.div
+        initial={{ y: 0, opacity: 1 }}
+        animate={{
+          y: [0, 30, 60, 80], // Falling effect
+          opacity: [1, 0.8, 0.6, 0.3, 0], // Gradual fade-out
+        }}
+        transition={{
+          duration: 1.5, // Duration of drop animation
+          repeat: Infinity, // Infinite loop
+          repeatDelay: 0.1, // Delay before the next drop
+        }}
+        style={{
+          position: "absolute",
+          left: "40%",
+          top: "70%", // Start just below the triangle
+          transform: "translateX(-50%)",
+          width: 16,
+          height: 16,
+          backgroundColor: "rgb(33, 255, 226)", // Light-colored drop
+          borderRadius: "50%", // Circular shape
+        }}
+      />
+    );
   };
 
   return (
@@ -148,6 +175,7 @@ const Navbar = () => {
                     transform: "translateX(-50%)",
                   }}
                 />
+                <DropAnimation />
                 <IconButton
                   sx={{
                     ...menuButtonStyle,
@@ -184,9 +212,7 @@ const Navbar = () => {
                       color: "white",
                     },
                   }}
-                  onClick={() => {
-                    navigate("/#skills");
-                  }}
+                  onClick={() => scrollToSection("skills")}
                 >
                   SKILLS
                 </Typography>
@@ -197,60 +223,70 @@ const Navbar = () => {
 
         {/* Full-Screen Menu Overlay */}
         {menuOpen && (
-          <Box
-            onClick={closeMenu}
-            sx={{
-              ...fullScreenMenuStyle,
-              display: "flex",
-              flexDirection: "column",
-              justifyContent: "center", // Centers items vertically
-              alignItems: "center", // Centers items horizontally
-              textAlign: "center", // Ensures text alignment
-              height: "100vh", // Ensures full-screen centering
-            }}
+          <motion.div
+            initial={{ y: "-100%" }} // Starts off-screen (right)
+            animate={{ y: 0 }} // Slides in to the screen
+            exit={{ y: "-100%" }} // Slides out when closed
+            transition={{
+              duration: 0.4, // Fast entrance
+              ease: "easeInOut",
+              exit: { duration: 1, ease: "easeInOut" },
+            }} // Smooth transition
+            style={fullScreenMenuStyle}
           >
-            <IconButton
-              onClick={toggleMenu}
+            <Box
+              onClick={closeMenu}
               sx={{
-                position: "absolute",
-                top: 20,
-                color: "white",
-                fontSize: "3rem",
+                ...fullScreenMenuStyle,
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "center", // Centers items vertically
+                alignItems: "center", // Centers items horizontally
+                textAlign: "center", // Ensures text alignment
+                height: "100vh", // Ensures full-screen centering
               }}
             >
-              <CloseIcon fontSize="inherit" />
-            </IconButton>
-            <Typography
-              component={Link}
-              to="/"
-              onClick={closeMenu}
-              sx={menuItemStyle}
-            >
-              HOME
-            </Typography>
-            <Typography
-              component={Link}
-              to="/projects"
-              onClick={closeMenu}
-              sx={menuItemStyle}
-            >
-              PROJECTS
-            </Typography>
-            <Typography
-              sx={menuItemStyle}
-              onClick={() => scrollToSection("contact")}
-            >
-              CONTACT
-            </Typography>
-            <Typography
-              sx={menuItemStyle}
-              onClick={() => {
-                navigate("/#skills");
-              }}
-            >
-              SKILLS
-            </Typography>
-          </Box>
+              <IconButton
+                onClick={toggleMenu}
+                sx={{
+                  position: "absolute",
+                  top: 20,
+                  color: "white",
+                  fontSize: "3rem",
+                }}
+              >
+                <CloseIcon fontSize="inherit" />
+              </IconButton>
+              <Typography
+                component={Link}
+                to="/"
+                onClick={closeMenu}
+                sx={menuItemStyle}
+              >
+                HOME
+              </Typography>
+              <Typography
+                component={Link}
+                to="/projects"
+                onClick={closeMenu}
+                sx={menuItemStyle}
+              >
+                PROJECTS
+              </Typography>
+              <Typography
+                sx={menuItemStyle}
+                onClick={() => scrollToSection("contact")}
+              >
+                CONTACT
+              </Typography>
+              <Typography
+                sx={menuItemStyle}
+                onClick={() => scrollToSection("skills")}
+              >
+                SKILLS
+              </Typography>
+            </Box>
+          </motion.div>
         )}
       </Box>
     </>
