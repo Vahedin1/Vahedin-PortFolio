@@ -8,13 +8,14 @@ import {
   useMediaQuery,
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import CloseIcon from "@mui/icons-material/Close";
 import { useTheme } from "@mui/material/styles";
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const theme = useTheme();
+  const navigate = useNavigate();
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
 
   const navLinkStyle = {
@@ -80,166 +81,178 @@ const Navbar = () => {
 
   return (
     <>
-      <AppBar
-        position="static"
-        sx={{
-          backgroundColor: theme.palette.background.default, // Use theme background
-          color: theme.palette.primary.main, // Use theme text color
-          boxShadow: "none",
-        }}
+      <Box
+        className={
+          location.pathname === "/projects/unger" ? "hidden-section" : ""
+        }
       >
-        <Toolbar
+        <AppBar
+          position="static"
           sx={{
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
+            backgroundColor: theme.palette.background.default, // Use theme background
+            color: theme.palette.primary.main, // Use theme text color
+            boxShadow: "none",
           }}
         >
-          {/* Hide Navigation Links on Mobile */}
-          {!isMobile && (
-            <Box sx={{ display: "flex", gap: 15, mr: 15 }}>
-              <Typography
-                component={Link}
-                to="/"
-                sx={{
-                  ...navLinkStyle,
-                  "&:hover": {
-                    color: "white",
-                  },
-                }}
-              >
-                HOME
-              </Typography>
-              <Typography
-                component={Link}
-                to="/projects"
-                sx={{
-                  ...navLinkStyle,
-                  "&:hover": {
-                    color: "white",
-                  },
-                }}
-              >
-                PROJECTS
-              </Typography>
-            </Box>
-          )}
-
-          {/* Menu Button (centered) */}
-          {!menuOpen && (
-            <Box sx={{ position: "fixed", textAlign: "center", zIndex: 1300 }}>
-              <Box
-                sx={{
-                  width: 130,
-                  height: 60,
-                  backgroundColor: theme.palette.primary.main,
-                  clipPath: "polygon(50% 100%, 100% 0%, 0% 0%)",
-                  position: "absolute",
-                  top: -11,
-                  left: "50%",
-                  transform: "translateX(-50%)",
-                }}
-              />
-              <IconButton
-                sx={{
-                  ...menuButtonStyle,
-                  fontWeight: "bold", // Ensures the button itself has bold styling
-                  transition: "transform 0.3s ease-in-out",
-                  "&:hover": {
-                    transform: "scale(1.25)", // Scale up on hover
-                  },
-                }}
-                onClick={toggleMenu}
-              >
-                <MenuIcon fontSize="inherit" sx={{fontWeight: "bold"}} />
-              </IconButton>
-            </Box>
-          )}
-
-          {!isMobile && (
-            <Box sx={{ display: "flex", gap: 15, ml: 15 }}>
-              <Typography
-                sx={{
-                  ...navLinkStyle,
-                  "&:hover": {
-                    color: "white",
-                  },
-                }}
-                onClick={() => scrollToSection("contact")}
-              >
-                CONTACT
-              </Typography>
-              <Typography
-                sx={{
-                  ...navLinkStyle,
-                  "&:hover": {
-                    color: "white",
-                  },
-                }}
-                onClick={() => scrollToSection("skills")}
-              >
-                PAGE4
-              </Typography>
-            </Box>
-          )}
-        </Toolbar>
-      </AppBar>
-
-      {/* Full-Screen Menu Overlay */}
-      {menuOpen && (
-        <Box
-          onClick={closeMenu}
-          sx={{
-            ...fullScreenMenuStyle,
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "center", // Centers items vertically
-            alignItems: "center", // Centers items horizontally
-            textAlign: "center", // Ensures text alignment
-            height: "100vh", // Ensures full-screen centering
-          }}
-        >
-          <IconButton
-            onClick={toggleMenu}
+          <Toolbar
             sx={{
-              position: "absolute",
-              top: 20,
-              color: "white",
-              fontSize: "3rem",
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
             }}
           >
-            <CloseIcon fontSize="inherit" />
-          </IconButton>
-          <Typography
-            component={Link}
-            to="/"
+            {/* Hide Navigation Links on Mobile */}
+            {!isMobile && (
+              <Box sx={{ display: "flex", gap: 15, mr: 15 }}>
+                <Typography
+                  component={Link}
+                  to="/"
+                  sx={{
+                    ...navLinkStyle,
+                    "&:hover": {
+                      color: "white",
+                    },
+                  }}
+                >
+                  HOME
+                </Typography>
+                <Typography
+                  component={Link}
+                  to="/projects"
+                  sx={{
+                    ...navLinkStyle,
+                    "&:hover": {
+                      color: "white",
+                    },
+                  }}
+                >
+                  PROJECTS
+                </Typography>
+              </Box>
+            )}
+
+            {/* Menu Button (centered) */}
+            {!menuOpen && (
+              <Box
+                sx={{ position: "fixed", textAlign: "center", zIndex: 1300 }}
+              >
+                <Box
+                  sx={{
+                    width: 130,
+                    height: 60,
+                    backgroundColor: theme.palette.primary.main,
+                    clipPath: "polygon(50% 100%, 100% 0%, 0% 0%)",
+                    position: "absolute",
+                    top: -11,
+                    left: "50%",
+                    transform: "translateX(-50%)",
+                  }}
+                />
+                <IconButton
+                  sx={{
+                    ...menuButtonStyle,
+                    fontWeight: "bold", // Ensures the button itself has bold styling
+                    transition: "transform 0.3s ease-in-out",
+                    "&:hover": {
+                      transform: "scale(1.25)", // Scale up on hover
+                    },
+                  }}
+                  onClick={toggleMenu}
+                >
+                  <MenuIcon fontSize="inherit" sx={{ fontWeight: "bold" }} />
+                </IconButton>
+              </Box>
+            )}
+
+            {!isMobile && (
+              <Box sx={{ display: "flex", gap: 15, ml: 15 }}>
+                <Typography
+                  sx={{
+                    ...navLinkStyle,
+                    "&:hover": {
+                      color: "white",
+                    },
+                  }}
+                  onClick={() => scrollToSection("contact")}
+                >
+                  CONTACT
+                </Typography>
+                <Typography
+                  sx={{
+                    ...navLinkStyle,
+                    "&:hover": {
+                      color: "white",
+                    },
+                  }}
+                  onClick={() => {
+                    navigate("/#skills");
+                  }}
+                >
+                  SKILLS
+                </Typography>
+              </Box>
+            )}
+          </Toolbar>
+        </AppBar>
+
+        {/* Full-Screen Menu Overlay */}
+        {menuOpen && (
+          <Box
             onClick={closeMenu}
-            sx={menuItemStyle}
+            sx={{
+              ...fullScreenMenuStyle,
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "center", // Centers items vertically
+              alignItems: "center", // Centers items horizontally
+              textAlign: "center", // Ensures text alignment
+              height: "100vh", // Ensures full-screen centering
+            }}
           >
-            HOME
-          </Typography>
-          <Typography
-            component={Link}
-            to="/projects"
-            onClick={closeMenu}
-            sx={menuItemStyle}
-          >
-            PROJECTS
-          </Typography>
-          <Typography
-            sx={menuItemStyle}
-            onClick={() => scrollToSection("contact")}
-          >
-            CONTACT
-          </Typography>
-          <Typography
-            sx={menuItemStyle}
-            onClick={() => scrollToSection("skills")}
-          >
-            PAGE4
-          </Typography>
-        </Box>
-      )}
+            <IconButton
+              onClick={toggleMenu}
+              sx={{
+                position: "absolute",
+                top: 20,
+                color: "white",
+                fontSize: "3rem",
+              }}
+            >
+              <CloseIcon fontSize="inherit" />
+            </IconButton>
+            <Typography
+              component={Link}
+              to="/"
+              onClick={closeMenu}
+              sx={menuItemStyle}
+            >
+              HOME
+            </Typography>
+            <Typography
+              component={Link}
+              to="/projects"
+              onClick={closeMenu}
+              sx={menuItemStyle}
+            >
+              PROJECTS
+            </Typography>
+            <Typography
+              sx={menuItemStyle}
+              onClick={() => scrollToSection("contact")}
+            >
+              CONTACT
+            </Typography>
+            <Typography
+              sx={menuItemStyle}
+              onClick={() => {
+                navigate("/#skills");
+              }}
+            >
+              SKILLS
+            </Typography>
+          </Box>
+        )}
+      </Box>
     </>
   );
 };

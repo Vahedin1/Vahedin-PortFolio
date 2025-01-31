@@ -10,3 +10,9 @@
   display: flex;
   flex-direction: column;
 }
+
+
+.hidden-section {
+  display: none;
+}
+

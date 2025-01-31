@@ -4,6 +4,7 @@ import Footer from "./components/Footer.jsx";
 import NoPage from "./pages/NoPage.jsx";
 import Home from "./pages/Home.jsx";
 import Projects from "./pages/Projects.jsx";
+import Certifications from "./pages/Certifications.jsx";
 import Unger from "./pages/Unger.jsx";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import ScrollToTop from "./components/ScrollToTop.jsx";
@@ -28,12 +29,13 @@ function App() {
       <BrowserRouter>
         <div className="App" style={{}}>
           <Navbar />
-          <Container maxWidth="xl" sx={{ padding: "20px" }}>
+          <Container maxWidth="none" disableGutters sx={{ padding: "0px"}}>
             <ScrollToTop />
             <Routes>
               <Route path="/" element={<Home />} />
+              <Route path="/certifications" element={<Certifications />} />
               <Route path="/projects" element={<Projects />} />
-              <Route path="/projects/Unger" element={<Unger />} />
+              <Route path="/projects/unger" element={<Unger />} />
               <Route path="/*" element={<NoPage />} />
             </Routes>
           </Container>
