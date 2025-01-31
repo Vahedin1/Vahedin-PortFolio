@@ -9,7 +9,7 @@ import {
   FaDownload,
 } from "react-icons/fa";
 import { Box, IconButton, Typography, Avatar } from "@mui/material";
-import profileImage from "/assets/Vahedin.png";
+import profileImage from "./assets/Vahedin.png";
 
 const Sidebar = () => {
   const [isOpen, setIsOpen] = useState(false);
