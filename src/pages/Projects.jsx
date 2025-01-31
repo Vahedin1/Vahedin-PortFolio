@@ -37,27 +37,31 @@ const projects = [
   },
 ];
 
-const Projects = () => {
-  const theme = useTheme();
-
-  const [backgroundImage, setBackgroundImage] = useState("");
-
-  useEffect(() => {
-    const updateBackground = () => {
-      const newBackground =
-        window.innerWidth < 768
-          ? "/assets/Project-Mobile.png"
-          : "/assets/Project-PC.png";
-      setBackgroundImage(newBackground);
-    };
-
-    updateBackground(); // Set initial background
-    window.addEventListener("resize", updateBackground); // Update on resize
-
-    return () => {
-      window.removeEventListener("resize", updateBackground);
-    };
-  }, []);
+  const Projects = () => {
+    const theme = useTheme();
+    const [backgroundImage, setBackgroundImage] = useState("");
+  
+    useEffect(() => {
+      const updateBackground = () => {
+        if (window.innerWidth < 768) {
+          document.body.style.backgroundImage =
+            "url('/assets/Project-Mobile.png')";
+        } else {
+          document.body.style.backgroundImage = "url('/assets/Project-PC.png')";
+        }
+        document.body.style.backgroundSize = "cover";
+        document.body.style.backgroundPosition = "top";
+        document.body.style.backgroundAttachment = "local";
+      };
+  
+      updateBackground(); // Set initial background
+      window.addEventListener("resize", updateBackground); // Update on resize
+  
+      return () => {
+        window.removeEventListener("resize", updateBackground);
+        document.body.style.backgroundImage = ""; // Clean up on unmount
+      };
+    }, []);
 
   const handleLinkClick = (link) => {
     navigate(link); // Navigate to the target link

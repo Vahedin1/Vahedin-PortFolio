@@ -8,7 +8,7 @@ import {
   useMediaQuery,
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import CloseIcon from "@mui/icons-material/Close";
 import { useTheme } from "@mui/material/styles";
 import { motion } from "framer-motion";
@@ -17,6 +17,7 @@ const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const theme = useTheme();
   const navigate = useNavigate();
+  const location = useLocation();
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
 
   const navLinkStyle = {
@@ -78,6 +79,12 @@ const Navbar = () => {
 
   const closeMenu = () => {
     setMenuOpen(false);
+  };
+  const scrollToSection = (id) => {
+    const section = document.getElementById(id);
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" });
+    }
   };
   const DropAnimation = () => {
     return (
@@ -212,7 +219,18 @@ const Navbar = () => {
                       color: "white",
                     },
                   }}
-                  onClick={() => scrollToSection("skills")}
+                  onClick={() => {
+                    // First navigate to root path
+                    navigate('/');
+                
+                    // Then scroll to "skills2" section after a brief delay (e.g. 500ms)
+                    setTimeout(() => {
+                      const skillsSection = document.getElementById('skills2');
+                      if (skillsSection) {
+                        skillsSection.scrollIntoView({ behavior: 'smooth' });
+                      }
+                    }, 500); // Adjust the delay as needed
+                  }}
                 >
                   SKILLS
                 </Typography>
@@ -221,103 +239,137 @@ const Navbar = () => {
           </Toolbar>
         </AppBar>
 
-        {/* Full-Screen Menu Overlay */}
-        {menuOpen && (
-          <motion.div
-            initial={{ y: "-100%" }} // Starts off-screen (right)
-            animate={{ y: 0 }} // Slides in to the screen
-            exit={{ y: "-100%" }} // Slides out when closed
-            transition={{
-              duration: 0.4, // Fast entrance
-              ease: "easeInOut",
-              exit: { duration: 1, ease: "easeInOut" },
-            }} // Smooth transition
-            style={fullScreenMenuStyle}
-          >
-            <Box
-              onClick={closeMenu}
-              sx={{
-                ...fullScreenMenuStyle,
-                display: "flex",
-                flexDirection: "column",
-                justifyContent: "center", // Centers items vertically
-                alignItems: "center", // Centers items horizontally
-                textAlign: "center", // Ensures text alignment
-                height: "100vh", // Ensures full-screen centering
-              }}
-            >
-              <IconButton
-                onClick={toggleMenu}
-                sx={{
-                  position: "absolute",
-                  top: 20,
-                  color: "white",
-                  fontSize: "3rem",
-                }}
-              >
-                <CloseIcon fontSize="inherit" />
-              </IconButton>
-              <Typography
-                component={Link}
-                to="/"
-                onClick={closeMenu}
-                sx={menuItemStyle}
-              >
-                HOME
-              </Typography>
-              <Typography
-                component={Link}
-                to="/projects"
-                onClick={closeMenu}
-                sx={menuItemStyle}
-              >
-                PROJECTS
-              </Typography>
-              <Typography
-                sx={menuItemStyle}
-                onClick={() => scrollToSection("contact")}
-              >
-                CONTACT
-              </Typography>
-              <Typography
-                sx={menuItemStyle}
-                onClick={() => scrollToSection("skills")}
-              >
-                SKILLS
-              </Typography>
-            </Box>
-          </motion.div>
-        )}
+       {/* Full-Screen Menu Overlay */}
+{menuOpen && (
+  <motion.div
+    initial={{ y: "-100%" }} // Starts off-screen (right)
+    animate={{ y: 0 }} // Slides in to the screen
+    exit={{ y: "-100%" }} // Slides out when closed
+    transition={{
+      duration: 0.4, // Fast entrance
+      ease: "easeInOut",
+      exit: { duration: 1, ease: "easeInOut" },
+    }} // Smooth transition
+    style={fullScreenMenuStyle}
+  >
+    <Box
+      onClick={closeMenu}
+      sx={{
+        ...fullScreenMenuStyle,
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "center", // Centers items vertically
+        alignItems: "center", // Centers items horizontally
+        textAlign: "center", // Ensures text alignment
+        height: "100vh", // Ensures full-screen centering
+      }}
+    >
+      <IconButton
+        onClick={toggleMenu}
+        sx={{
+          position: "absolute",
+          top: 20,
+          color: "white",
+          fontSize: "3rem",
+        }}
+      >
+        <CloseIcon fontSize="inherit" />
+      </IconButton>
+      <Typography
+        component={Link}
+        to="/"
+        onClick={closeMenu}
+        sx={{
+          ...menuItemStyle,
+          fontSize: {
+            xs: '1.2rem',  // Extra small screens
+            sm: '1.4rem',  // Small screens
+            md: '1.6rem',  // Medium screens
+            lg: '2rem',    // Large screens
+          },
+        }}
+      >
+        HOME
+      </Typography>
+      <Typography
+        component={Link}
+        to="/projects"
+        onClick={closeMenu}
+        sx={{
+          ...menuItemStyle,
+          fontSize: {
+            xs: '1.2rem',  // Extra small screens
+            sm: '1.4rem',  // Small screens
+            md: '1.6rem',  // Medium screens
+            lg: '2rem',    // Large screens
+          },
+        }}
+      >
+        PROJECTS
+      </Typography>
+      <Typography
+        sx={{
+          ...menuItemStyle,
+          fontSize: {
+            xs: '1.2rem',  // Extra small screens
+            sm: '1.4rem',  // Small screens
+            md: '1.6rem',  // Medium screens
+            lg: '2rem',    // Large screens
+          },
+        }}
+        onClick={() => scrollToSection("contact")}
+      >
+        CONTACT
+      </Typography>
+      <Typography
+        sx={{
+          ...menuItemStyle,
+          fontSize: {
+            xs: '1.2rem',  // Extra small screens
+            sm: '1.4rem',  // Small screens
+            md: '1.6rem',  // Medium screens
+            lg: '2rem',    // Large screens
+          },
+        }}
+        onClick={() => {
+          // First navigate to root path
+          navigate('/');
+      
+          // Then scroll to "skills2" section after a brief delay (e.g. 500ms)
+          setTimeout(() => {
+            const skillsSection = document.getElementById('skills2');
+            if (skillsSection) {
+              skillsSection.scrollIntoView({ behavior: 'smooth' });
+            }
+          }, 500); // Adjust the delay as needed
+        }}
+      >
+        SKILLS
+      </Typography>
+    </Box>
+  </motion.div>
+)}
+
       </Box>
     </>
   );
 };
 
 const scrollToSection = (id) => {
-  const section = document.getElementById(id);
-  if (section) {
-    const targetPosition = section.getBoundingClientRect().top + window.scrollY;
-    const startPosition = window.scrollY;
-    const distance = targetPosition - startPosition;
-    const duration = 800; // Adjust this value to control speed (in milliseconds)
-    let startTime = null;
+  const executeScroll = () => {
+    setTimeout(() => {
+      const section = document.getElementById(id);
+      if (section) {
+        section.scrollIntoView({ behavior: "smooth" });
+      }
+    }, 300); // Small delay to ensure section is available
+  };
 
-    const easeInOutQuad = (t, b, c, d) => {
-      t /= d / 2;
-      if (t < 1) return (c / 2) * t * t + b;
-      t--;
-      return (-c / 2) * (t * (t - 2) - 1) + b;
-    };
-
-    const animation = (currentTime) => {
-      if (!startTime) startTime = currentTime;
-      const timeElapsed = currentTime - startTime;
-      const run = easeInOutQuad(timeElapsed, startPosition, distance, duration);
-      window.scrollTo(0, run);
-      if (timeElapsed < duration) requestAnimationFrame(animation);
-    };
-
-    requestAnimationFrame(animation);
+  if (location.pathname !== "/") {
+    navigate("/", { replace: false });
+    setTimeout(executeScroll, 500); // Delay ensures the home page has loaded
+  } else {
+    executeScroll();
   }
 };
 

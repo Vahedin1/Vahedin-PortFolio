@@ -229,77 +229,55 @@ const Home = () => {
           </Grid>
         </Card>
 
-        <Card id={"skills"} sx={cardStyle}>
-          <Typography
-            variant="h4"
-            fontWeight="bold"
-            textAlign="center"
-            gutterBottom
-          >
-            SKILLS
-          </Typography>
-          {skills.map((section, index) => (
-            <Box key={index} sx={{ mb: 5 }}>
-              <Typography variant="h6" fontWeight="bold">
-                {section.category}
-              </Typography>
-              {section.skills.map((skill, i) => (
-                <Grid
-                  container
-                  key={i}
-                  alignItems="center"
-                  spacing={2}
-                  sx={{ mb: 1 }}
-                >
-                  {/* Skill Name */}
-                  <Grid item xs={3}>
-                    <Typography variant="body1" sx={{ textAlign: "left" }}>
-                      {skill.name}
-                    </Typography>
+           {/* Box wrapping the skills section */}
+           <Box id="skills2" sx={{ position: 'relative', zIndex: 1 }}>
+          <Card sx={cardStyle}>
+            <Typography variant="h4" fontWeight="bold" textAlign="center" gutterBottom>
+              SKILLS
+            </Typography>
+            {skills.map((section, index) => (
+              <Box key={index} sx={{ mb: 5 }}>
+                <Typography variant="h6" fontWeight="bold">
+                  {section.category}
+                </Typography>
+                {section.skills.map((skill, i) => (
+                  <Grid container key={i} alignItems="center" spacing={2} sx={{ mb: 1 }}>
+                    <Grid item xs={3}>
+                      <Typography variant="body1" sx={{ textAlign: "left" }}>
+                        {skill.name}
+                      </Typography>
+                    </Grid>
+                    <Grid item xs={7} sx={{ display: "flex", alignItems: "center" }}>
+                      <LinearProgress
+                        variant="determinate"
+                        value={skill.level}
+                        sx={{
+                          flexGrow: 1,
+                          height: 8,
+                          borderRadius: 2,
+                          bgcolor: "white",
+                          width: "100%",
+                        }}
+                      />
+                    </Grid>
+                    <Grid item xs={2}>
+                      <Typography variant="body1" sx={{ textAlign: "right", minWidth: 40 }}>
+                        {skill.level}%
+                      </Typography>
+                    </Grid>
                   </Grid>
-
-                  {/* Progress Bar */}
-                  <Grid
-                    item
-                    xs={7}
-                    sx={{ display: "flex", alignItems: "center" }}
-                  >
-                    <LinearProgress
-                      variant="determinate"
-                      value={skill.level}
-                      sx={{
-                        flexGrow: 1,
-                        height: 8,
-                        borderRadius: 2,
-                        bgcolor: "white",
-                        width: "100%", // Ensures all bars are the same length
-                      }}
-                    />
-                  </Grid>
-
-                  {/* Percentage */}
-                  <Grid item xs={2}>
-                    <Typography
-                      variant="body1"
-                      sx={{ textAlign: "right", minWidth: 40 }}
-                    >
-                      {skill.level}%
-                    </Typography>
-                  </Grid>
-                </Grid>
-              ))}
-            </Box>
-          ))}
-          <Button
-            variant="contained"
-            onClick={() => navigate("/projects")}
-            sx={{
-              mt: 2,
-            }}
-          >
-            CHECK OUT MY PROJECTS
-          </Button>
-        </Card>
+                ))}
+              </Box>
+            ))}
+            <Button
+              variant="contained"
+              onClick={() => navigate("/projects")}
+              sx={{ mt: 2 }}
+            >
+              CHECK OUT MY PROJECTS
+            </Button>
+          </Card>
+        </Box>
 
         <Card sx={cardStyle}>
           <Typography variant="h4" fontWeight="bold" gutterBottom>
