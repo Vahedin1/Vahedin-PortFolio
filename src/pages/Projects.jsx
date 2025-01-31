@@ -185,9 +185,13 @@ const projects = [
           alignItems: "center",
         }}
       >
-        <Grid container spacing={3} justifyContent="center" maxWidth={"1800px"}>
+        <Grid container spacing={3} sx={{
+    ml: { xs: 0, md: 15 },
+    mr: { xs: 0, md: 15 },
+    mt: {xs: 0, md: 0},
+  }} justifyContent="center" maxWidth={"1800px"}>
           {projects.map((project, index) => (
-            <Grid item xs={12} sm={9} md={6} lg={4} key={index}>
+            <Grid item xs={12} sm={12} md={9} lg={6} key={index}>
               <motion.div
                 initial={{ opacity: 0, y: -30 }}
                 animate={{ opacity: 1, y: 0 }}
