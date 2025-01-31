@@ -17,24 +17,7 @@ const projects = [
     ],
     link: "/projects/unger",
   },
-  {
-    name: "Project2 example",
-    image: "/assets/project-unger/project-unger.webp",
-    skills: [{ icon: faHtml5, color: "#E44D26" }],
-    link: "/projects/unger",
-  },
-  {
-    name: "Project3 example",
-    image: "/assets/project-unger/project-unger.webp",
-    skills: [{ icon: faHtml5, color: "#E44D26" }],
-    link: "/projects/unger",
-  },
-  {
-    name: "Project4 example",
-    image: "/assets/project-unger/project-unger.webp",
-    skills: [{ icon: faHtml5, color: "#E44D26" }],
-    link: "/projects/unger",
-  },
+
 ];
 
   const Projects = () => {
