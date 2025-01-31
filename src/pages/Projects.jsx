@@ -17,7 +17,108 @@ const projects = [
     ],
     link: "/projects/unger",
   },
-
+  {
+    name: "Website: Vahedin Portfolio",
+    image: "/assets/Vahedins-Portfolio.PNG",
+    skills: [
+      { icon: faReact, color: "#61DBFB" },
+      { icon: faJs, color: "#F7DF1E" },
+      { icon: faHtml5, color: "#E44D26" },
+    ],
+    link: "/",
+  },
+  {
+    name: "",
+    image: "/assets/Untitled.png",
+    skills: [
+    ],
+    link: "/",
+  },
+  {
+    name: "",
+    image: "/assets/Untitled.png",
+    skills: [
+    ],
+    link: "/",
+  },
+  {
+    name: "",
+    image: "/assets/Untitled.png",
+    skills: [
+    ],
+    link: "/",
+  },
+  {
+    name: "",
+    image: "/assets/Untitled.png",
+    skills: [
+    ],
+    link: "/",
+  },
+  {
+    name: "",
+    image: "/assets/Untitled.png",
+    skills: [
+    ],
+    link: "/",
+  },
+  {
+    name: "",
+    image: "/assets/Untitled.png",
+    skills: [
+    ],
+    link: "/",
+  },
+  {
+    name: "",
+    image: "/assets/Untitled.png",
+    skills: [
+    ],
+    link: "/",
+  },
+  {
+    name: "",
+    image: "/assets/Untitled.png",
+    skills: [
+    ],
+    link: "/",
+  },
+  {
+    name: "",
+    image: "/assets/Untitled.png",
+    skills: [
+    ],
+    link: "/",
+  },
+  {
+    name: "",
+    image: "/assets/Untitled.png",
+    skills: [
+    ],
+    link: "/",
+  },
+  {
+    name: "",
+    image: "/assets/Untitled.png",
+    skills: [
+    ],
+    link: "/",
+  },
+  {
+    name: "",
+    image: "/assets/Untitled.png",
+    skills: [
+    ],
+    link: "/",
+  },
+  {
+    name: "",
+    image: "/assets/Untitled.png",
+    skills: [
+    ],
+    link: "/",
+  },
+  
 ];
 
   const Projects = () => {
@@ -35,6 +136,7 @@ const projects = [
         document.body.style.backgroundSize = "cover";
         document.body.style.backgroundPosition = "top";
         document.body.style.backgroundAttachment = "local";
+        
       };
   
       updateBackground(); // Set initial background
@@ -77,7 +179,7 @@ const projects = [
       <Box
         sx={{
           padding: "20px",
-          marginTop: 40,
+          marginTop: 30,
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
@@ -110,7 +212,7 @@ const projects = [
                       sx={{
                         position: "relative",
                         width: "100%",
-                        height: 360,
+                        height: 300,
                         overflow: "hidden",
                       }}
                     >
@@ -119,7 +221,7 @@ const projects = [
                         image={project.image}
                         alt={project.name}
                         sx={{
-                          height: "350px",
+                          height: "300px",
                           objectFit: "cover",
                           transition: "transform 0.3s ease-in-out",
                           "&:hover": {

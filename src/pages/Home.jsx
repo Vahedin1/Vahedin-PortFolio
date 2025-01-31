@@ -36,7 +36,7 @@ const skills = [
     ],
   },
   {
-    category: "Databases",
+    category: "Data Access and Processing",
     skills: [
       { name: "MongoDB", level: 40 },
       { name: "SQLite", level: 75 },
@@ -166,7 +166,7 @@ const Home = () => {
   return (
     <Container
       maxWidth="md"
-      sx={{ textAlign: "center", mt: 10, fontFamily: "Roboto, sans-serif" }}
+      sx={{ textAlign: "center", mt: 0, fontFamily: "Roboto, sans-serif" }}
     >
       <motion.div
         initial={{ opacity: 0, y: -30 }}
@@ -178,7 +178,7 @@ const Home = () => {
             Hi, I'm Vahedin Hamidović
           </Typography>
           <Typography variant="body1" paragraph>
-            I am FrontEnd Developer
+             FrontEnd Developer
           </Typography>
           <Button
             variant="contained"
@@ -209,7 +209,7 @@ const Home = () => {
               </Typography>
               <Typography variant="body1" paragraph>
                 Hello, my name is Vahedin Hamidović. I am a FrontEnd Developer
-                from Serbia - Sjenica. Currently, I am unemployed. I love
+                from Serbia - Sjenica.Currently actively seeking for new opportunities.I love
                 working on a variety of technologies including Web Development and Software Development.
               </Typography>
               <Button
