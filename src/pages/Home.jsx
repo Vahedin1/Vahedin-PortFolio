@@ -30,7 +30,6 @@ const skills = [
     category: "Backend development",
     skills: [
       { name: "Django (Python)", level: 30 },
-      { name: "ASP.NET Core (C#)", level: 15 },
       { name: "FastAPI (Python)", level: 15 },
       { name: "Socket (Python)", level: 15 },
     ],
@@ -41,7 +40,7 @@ const skills = [
       { name: "MongoDB", level: 40 },
       { name: "SQLite", level: 75 },
       { name: "SQL", level: 65 },
-      { name: "sqlAlchemy", level: 65 },
+      { name: "sqlAlchemy", level: 5 },
     ],
   },
   /*
@@ -240,27 +239,29 @@ const Home = () => {
               SKILLS
             </Typography>
             {skills.map((section, index) => (
-              <Box key={index} sx={{ mb: 5 }}>
+              <Box key={index} sx={{ mb: 10 }}>
                 <Typography variant="h6" fontWeight="bold">
                   {section.category}
                 </Typography>
                 {section.skills.map((skill, i) => (
-                  <Grid container key={i} alignItems="center" spacing={2} sx={{ mb: 1 }}>
+                  <Grid container key={i} alignItems="center" spacing={2} sx={{ mb: 2 }}>
                     <Grid item xs={3}>
                       <Typography variant="body1" sx={{ textAlign: "left" }}>
                         {skill.name}
                       </Typography>
                     </Grid>
-                    <Grid item xs={7} sx={{ display: "flex", alignItems: "center" }}>
+                    <Grid item xs={7} sx={{ display: "flex",
+    justifyContent: "center",  // Centers the progress bar horizontally
+    alignItems: "center",  // Ensures it stays vertically centered
+    width: "80%", }}>
                       <LinearProgress
                         variant="determinate"
                         value={skill.level}
                         sx={{
-                          flexGrow: 1,
                           height: 8,
                           borderRadius: 2,
                           bgcolor: "white",
-                          width: "100%",
+                          width: "70% ",
                         }}
                       />
                     </Grid>
