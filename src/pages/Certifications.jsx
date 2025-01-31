@@ -9,7 +9,7 @@ import {
   useTheme,
 } from "@mui/material";
 import DownloadIcon from "@mui/icons-material/Download";
-
+ {/* 
 const certifications = [
   {
     title: "Python & AI Developer",
@@ -31,6 +31,7 @@ const Certifications = () => {
   const theme = useTheme();
 
   return (
+   
     <div
       style={{ background: theme.palette.background.default, padding: "20px" }}
     >
@@ -82,3 +83,4 @@ const Certifications = () => {
 };
 
 export default Certifications;
+*/}

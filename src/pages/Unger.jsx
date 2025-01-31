@@ -16,7 +16,15 @@ const Unger = () => {
   return (
     <div style={{ margin: 0, padding: 0 }}>
       <HeaderMenuButton />
-      <Container maxWidth="false" disableGutters sx={{ margin: 0, padding: 0 }}>
+      <Container
+        maxWidth="false"
+        disableGutters
+        sx={{
+          margin: 0,
+          padding: 0,
+          backgroundColor: theme.palette.background.default, // Applying theme background color
+        }}
+      >
         {/* Large Cover Image */}
         <Box
           sx={{
@@ -51,16 +59,11 @@ const Unger = () => {
             </Typography>
           </Grid>
           <Grid item xs={4} sx={{ margin: 0, padding: 0 }}>
-            <Typography variant="h5" fontWeight="bold" sx={{marginTop: {xs: 0, sm: 3}}}>
-              <Link
-                href="https://unger-bau.info"
-                color="inherit"
-                underline="none"
-              >
+            <Typography variant="h5" fontWeight="bold" sx={{ marginTop: { xs: 0, sm: 3 } }}>
+              <Link href="https://unger-bau.info" color="inherit" underline="none">
                 unger-bau.info
               </Link>
             </Typography>
-            ;
           </Grid>
           <Grid item xs={4} sx={{ margin: 0, padding: 0 }}>
             <Typography variant="h5" color="text.secondary">
