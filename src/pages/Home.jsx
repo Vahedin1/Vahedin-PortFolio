@@ -23,6 +23,7 @@ const skills = [
       { name: "CSS", level: 80 },
       { name: "MUI", level: 80 },
       { name: "HTML", level: 80 },
+      { name: "BootStrap", level: 80 },
     ],
   },
   {
@@ -31,16 +32,19 @@ const skills = [
       { name: "Django (Python)", level: 30 },
       { name: "ASP.NET Core (C#)", level: 15 },
       { name: "FastAPI (Python)", level: 15 },
+      { name: "Socket (Python)", level: 15 },
     ],
   },
   {
     category: "Databases",
     skills: [
-      { name: "MongoDB", level: 75 },
+      { name: "MongoDB", level: 40 },
       { name: "SQLite", level: 75 },
       { name: "SQL", level: 65 },
+      { name: "sqlAlchemy", level: 65 },
     ],
   },
+  /*
   {
     category: "Mobile development",
     skills: [{ name: "C#", level: 15 }],
@@ -73,6 +77,7 @@ const skills = [
       { name: "Game Physics", level: 35 },
     ],
   },
+*/
   {
     category: "Spoken languages",
     skills: [
@@ -173,7 +178,7 @@ const Home = () => {
             Hi, I'm Vahedin Hamidović
           </Typography>
           <Typography variant="body1" paragraph>
-            I am Software Developer
+            I am FrontEnd Developer
           </Typography>
           <Button
             variant="contained"
@@ -203,10 +208,9 @@ const Home = () => {
                 ABOUT ME
               </Typography>
               <Typography variant="body1" paragraph>
-                Hello, my name is Vahedin Hamidović. I am a Software Developer
+                Hello, my name is Vahedin Hamidović. I am a FrontEnd Developer
                 from Serbia - Sjenica. Currently, I am unemployed. I love
-                working on a variety of technologies including Web Development
-                and Mobile App Development.
+                working on a variety of technologies including Web Development and Software Development.
               </Typography>
               <Button
                 variant="contained"
