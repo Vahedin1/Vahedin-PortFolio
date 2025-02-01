@@ -4,6 +4,7 @@ import Footer from "./components/Footer.jsx";
 import NoPage from "./pages/NoPage.jsx";
 import Home from "./pages/Home.jsx";
 import Projects from "./pages/Projects.jsx";
+import Project3 from "./pages/Project3.jsx";
 // import Certifications from "./pages/Certifications.jsx";
 import Unger from "./pages/Unger.jsx";
 import { BrowserRouter, Routes, Route } from "react-router-dom";

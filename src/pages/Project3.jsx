@@ -6,7 +6,35 @@ const Project3 = () => {
   return (
     <Container sx={{ padding: "40px 0", color: "red" }}>
       <Typography variant="h4" fontWeight="bold" textAlign="center" mb={4}>
-        My Projects
+        My Project3
+      </Typography>      <Typography variant="h4" fontWeight="bold" textAlign="center" mb={4}>
+        My Project3
+      </Typography>      <Typography variant="h4" fontWeight="bold" textAlign="center" mb={4}>
+        My Project3
+      </Typography>      <Typography variant="h4" fontWeight="bold" textAlign="center" mb={4}>
+        My Project3
+      </Typography>      <Typography variant="h4" fontWeight="bold" textAlign="center" mb={4}>
+        My Project3
+      </Typography>      <Typography variant="h4" fontWeight="bold" textAlign="center" mb={4}>
+        My Project3
+      </Typography>      <Typography variant="h4" fontWeight="bold" textAlign="center" mb={4}>
+        My Project3
+      </Typography>      <Typography variant="h4" fontWeight="bold" textAlign="center" mb={4}>
+        My Project3
+      </Typography>      <Typography variant="h4" fontWeight="bold" textAlign="center" mb={4}>
+        My Project3
+      </Typography>      <Typography variant="h4" fontWeight="bold" textAlign="center" mb={4}>
+        My Project3
+      </Typography>      <Typography variant="h4" fontWeight="bold" textAlign="center" mb={4}>
+        My Project3
+      </Typography>      <Typography variant="h4" fontWeight="bold" textAlign="center" mb={4}>
+        My Project3
+      </Typography>      <Typography variant="h4" fontWeight="bold" textAlign="center" mb={4}>
+        My Project3
+      </Typography>      <Typography variant="h4" fontWeight="bold" textAlign="center" mb={4}>
+        My Project3
+      </Typography>      <Typography variant="h4" fontWeight="bold" textAlign="center" mb={4}>
+        My Project3
       </Typography>
       
     </Container>
