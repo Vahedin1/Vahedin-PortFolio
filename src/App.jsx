@@ -36,8 +36,8 @@ function App() {
               <Route path="/" element={<Home />} />
              {/*  <Route path="/certifications" element={<Certifications />} />*/}
               <Route path="/projects" element={<Projects />} />
-              <Route path="/unger" element={<Unger />} />   
-              <Route path="/project3" element={<Project3 />} />   
+              <Route path="/projects/unger" element={<Unger />} />   
+              <Route path="/projects/project3" element={<Project3 />} />   
               <Route path="/*" element={<NoPage />} />
             </Routes>
           </Container>

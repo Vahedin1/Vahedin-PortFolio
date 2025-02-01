@@ -15,7 +15,7 @@ const projects = [
       { icon: faJs, color: "#F7DF1E" },
       { icon: faHtml5, color: "#E44D26" },
     ],
-    link: "/unger",
+    link: "/projects/unger",
   },
   {
     name: "Website: Vahedin Portfolio",
@@ -41,7 +41,7 @@ const projects = [
       { icon: faReact, color: "#61DBFB" },
       { icon: faJs, color: "#F7DF1E" },
     ],
-    link: "/project3",
+    link: "/projects/project3",
   },
   {
     name: "",
