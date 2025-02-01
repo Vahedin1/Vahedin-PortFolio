@@ -165,7 +165,7 @@ const Home = () => {
   return (
     <Container
       maxWidth="md"
-      sx={{ textAlign: "center", mt: 0, fontFamily: "Roboto, sans-serif" }}
+      sx={{ textAlign: "center", mt: 0, margin: 0, padding: 0,  fontFamily: "Roboto, sans-serif" }}
     >
       <motion.div
         initial={{ opacity: 0, y: -30 }}

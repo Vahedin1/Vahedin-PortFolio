@@ -178,7 +178,7 @@ const projects = [
       />
       <Box
         sx={{
-          padding: "20px",
+          padding: "0px 30px 0px 0px",
           marginTop: 30,
           display: "flex",
           justifyContent: "center",
