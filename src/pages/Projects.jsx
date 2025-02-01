@@ -64,63 +64,6 @@ const projects = [
     ],
     link: "/",
   },
-  {
-    name: "",
-    image: "/assets/Untitled.png",
-    skills: [
-    ],
-    link: "/",
-  },
-  {
-    name: "",
-    image: "/assets/Untitled.png",
-    skills: [
-    ],
-    link: "/",
-  },
-  {
-    name: "",
-    image: "/assets/Untitled.png",
-    skills: [
-    ],
-    link: "/",
-  },
-  {
-    name: "",
-    image: "/assets/Untitled.png",
-    skills: [
-    ],
-    link: "/",
-  },
-  {
-    name: "",
-    image: "/assets/Untitled.png",
-    skills: [
-    ],
-    link: "/",
-  },
-  {
-    name: "",
-    image: "/assets/Untitled.png",
-    skills: [
-    ],
-    link: "/",
-  },
-  {
-    name: "",
-    image: "/assets/Untitled.png",
-    skills: [
-    ],
-    link: "/",
-  },
-  {
-    name: "",
-    image: "/assets/Untitled.png",
-    skills: [
-    ],
-    link: "/",
-  },
-  
 ];
 
   const Projects = () => {
