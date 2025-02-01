@@ -9,7 +9,7 @@ import { motion, AnimatePresence } from "framer-motion";
 const projects = [
   {
     name: "Website: Unger-Bau.info",
-    image: "/assets/project-unger/project-unger.png",
+    image: "/assets/project-unger.png",
     skills: [
       { icon: faReact, color: "#61DBFB" },
       { icon: faJs, color: "#F7DF1E" },
@@ -35,11 +35,13 @@ const projects = [
     link: "/",
   },
   {
-    name: "",
-    image: "/assets/Untitled.png",
+    name: "Website: Project 3",
+    image: "/assets/V.png",
     skills: [
+      { icon: faReact, color: "#61DBFB" },
+      { icon: faJs, color: "#F7DF1E" },
     ],
-    link: "/",
+    link: "/project3",
   },
   {
     name: "",
