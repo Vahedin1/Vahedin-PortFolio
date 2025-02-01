@@ -17,7 +17,6 @@ const Unger = () => {
     <div style={{ margin: 0, padding: 0 }}>
       <HeaderMenuButton />
       <Container
-        maxWidth="false"
         disableGutters
         sx={{
           margin: 0,
@@ -31,7 +30,7 @@ const Unger = () => {
             position: "relative",
             width: "100%",
             height: { xs: "50vh", md: "100vh" }, // Adjust height for mobile
-            backgroundImage: "url('/assets/project-unger/project-unger.png')",
+            backgroundImage: "url('/project-unger/project-unger.png')",
             backgroundSize: { xs: "cover", md: "cover" }, // Contain for mobile
             backgroundPosition: "top center",
             backgroundRepeat: "no-repeat",
