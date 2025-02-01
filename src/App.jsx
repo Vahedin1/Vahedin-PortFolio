@@ -5,7 +5,7 @@ import NoPage from "./pages/NoPage.jsx";
 import Home from "./pages/Home.jsx";
 import Projects from "./pages/Projects.jsx";
 // import Certifications from "./pages/Certifications.jsx";
-import Unger from "./pages/Unger.jsx";
+// import Unger from "./pages/Unger.jsx";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import ScrollToTop from "./components/ScrollToTop.jsx";
 import { Container } from "@mui/material";
@@ -35,7 +35,7 @@ function App() {
               <Route path="/" element={<Home />} />
              {/*  <Route path="/certifications" element={<Certifications />} />*/}
               <Route path="/projects" element={<Projects />} />
-              <Route path="/unger" element={<Unger />} />
+            {/* <Route path="/unger" element={<Unger />} /> */}  
               <Route path="/*" element={<NoPage />} />
             </Routes>
           </Container>
