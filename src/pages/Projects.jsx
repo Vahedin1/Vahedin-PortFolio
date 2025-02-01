@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { Grid, Card, CardMedia, Box, Typography } from "@mui/material";
-import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useTheme } from "@mui/material/styles";
 import { faReact, faJs, faHtml5 } from "@fortawesome/free-brands-svg-icons";
@@ -126,7 +125,8 @@ const projects = [
   const Projects = () => {
     const theme = useTheme();
     const [backgroundImage, setBackgroundImage] = useState("");
-  
+    const navigate = useNavigate();
+    
     useEffect(() => {
       const updateBackground = () => {
         if (window.innerWidth < 768) {
@@ -208,12 +208,9 @@ const projects = [
                       borderBottom: `4px solid ${theme.palette.primary.main}`,
                     },
                   }}
+                  onClick={() => navigate(project.link)}
                 >
-                  <Link
-                    to={project.link}
-                    style={{ textDecoration: "none", color: "inherit" }}
-                    onClick={handleLinkClick}
-                  >
+
                     <Box
                       sx={{
                         position: "relative",
@@ -257,7 +254,6 @@ const projects = [
                         ))}
                       </Box>
                     </Box>
-                  </Link>
                 </Card>
               </motion.div>
             </Grid>
