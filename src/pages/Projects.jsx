@@ -39,7 +39,7 @@ const projects = [
     image: "/assets/Untitled.png",
     skills: [
     ],
-    link: "/",
+    link: "/projects/d",
   },
   {
     name: "",

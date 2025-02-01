@@ -5,8 +5,8 @@ export default function NoPage() {
     <div
       style={{ display: "flex", flexDirection: "column", minHeight: "100vh" }}
     >
-      <div style={{ flex: "1 0 auto" }}>
-        <Typography
+          <div style={{ flex: "1 0 auto" }}>
+          <Typography
           sx={{
             textDecoration: "none",
             fontFamily: "Bahnschrift, Arial, sans-serif",
@@ -24,7 +24,7 @@ export default function NoPage() {
           <br />
           Error 404: Not Found
         </Typography>
-      </div>
+          </div>
     </div>
   );
 }
