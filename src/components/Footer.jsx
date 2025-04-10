@@ -106,12 +106,12 @@ const Footer = () => {
               <FontAwesomeIcon icon={faEnvelope} />
             </IconButton>
           </Box>
-        </Box>
+        </Box> 
         <Typography
           variant="body2"
           sx={{ fontSize: "12px", fontWeight: 300, textAlign: "center" }}
         >
-          &copy; 2025 | www.vahedinhamidovic.com
+          &copy; 2025 | vahedinhamidovic.netlify.app
         </Typography>
       </Box>
     </Box>
