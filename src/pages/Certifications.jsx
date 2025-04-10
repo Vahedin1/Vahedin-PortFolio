@@ -10,6 +10,7 @@ import {
   useMediaQuery,
 } from "@mui/material";
 import { useInView } from "react-intersection-observer";
+import { motion } from "framer-motion";
 
 const certifications = [
   {
@@ -18,22 +19,23 @@ const certifications = [
     date: "December 2024",
     validationNumber: "033267",
     images: {
-      mobile: "/assets/certification1.png", // fallback to the single image
-      pc: "/assets/certification1.png",
+      mobile: "/assets/certification-mobile.jpeg", // fallback to the single image
+      pc: "/assets/certification-pc.png",
     },
     showValidationButton: true,
   },
+  /* 
   {
     title: "Microsoft Development Program (C#)",
     issuer: "IT ACADEMY",
     date: "Currently Enrolled",
     validationNumber: "N/A",
     images: {
-      mobile: "/assets/certification2-mobile.png",
-      pc: "/assets/certification2-pc.png",
+      mobile: "/assets/certification-mobile.jpeg",
+      pc: "/assets/certification-pc.png",
     },
-    showValidationButton: false,
-  },
+    showValidationButton: true,
+  },*/
 ];
 
 const Certifications = () => {
@@ -54,35 +56,95 @@ const Certifications = () => {
           const imageToShow = isMobile ? cert.images.mobile : cert.images.pc;
 
           return (
-            <Grid item xs={12} sm={12} md={9} lg={6} key={index} ref={ref}>
+            <Grid
+              item
+              xs={12}
+              sm={12}
+              md={12}
+              lg={12}
+              key={index}
+              ref={ref}
+              style={{ overflowX: "hidden" }}
+            >
               <Card
                 sx={{
                   maxWidth: "none",
                   textAlign: "center",
                   mx: "auto",
                   mt: 5,
-                  mb: 5,
+                  mb: 0,
+                  backgroundColor: "transparent",
+                  display: "inline-block", // Ensures the card is inline-block
+                  boxShadow: "none", // ← prevent MUI shadows
+                  border: "none",
                 }}
               >
                 {inView && (
-                  <CardMedia
-                    component="img"
-                    height="700px"
-                    image={imageToShow}
-                    alt={`${cert.title} - Image`}
-                  />
+                  <motion.div
+                    initial={{ opacity: 0, y: -30 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6 }}
+                  >
+                    <CardMedia
+                      component="img"
+                      image={imageToShow}
+                      alt={`${cert.title} - Image`}
+                      sx={{
+                        height: 700,
+                        width: "850px",
+                        margin: "0 auto",
+                        paddingTop: "60px",
+                        display: "block",
+                      }}
+                    />
+                  </motion.div>
                 )}
-                <div style={{ backgroundColor: "white" }}>
+                <div style={{ backgroundColor: "#000B38" }}>
                   <CardContent>
-                    <Typography gutterBottom variant="h6">
+                    <Typography
+                      gutterBottom
+                      variant="h6"
+                      sx={{
+                        fontWeight: "bold",
+                        fontSize: "1.5rem",
+                        color: "rgb(33, 255, 226)",
+                      }}
+                    >
                       {cert.title}
                     </Typography>
-                    <Typography variant="body2" color="text.secondary">
-                      <strong>Issuer:</strong> {cert.issuer}
+
+                    <Typography variant="body2" sx={{ fontSize: "1.5rem" }}>
+                      <span
+                        style={{
+                          color: "rgb(33, 255, 226)",
+                          fontWeight: "bold",
+                        }}
+                      >
+                        Issuer:
+                      </span>{" "}
+                      <span style={{ color: "white" }}>{cert.issuer}</span>
                       <br />
-                      <strong>Date:</strong> {cert.date}
+                      <span
+                        style={{
+                          color: "rgb(33, 255, 226)",
+                          fontWeight: "bold",
+                        }}
+                      >
+                        Date:
+                      </span>{" "}
+                      <span style={{ color: "white" }}>{cert.date}</span>
                       <br />
-                      <strong>Validation No.:</strong> {cert.validationNumber}
+                      <span
+                        style={{
+                          color: "rgb(33, 255, 226)",
+                          fontWeight: "bold",
+                        }}
+                      >
+                        Validation No.:
+                      </span>{" "}
+                      <span style={{ color: "white" }}>
+                        {cert.validationNumber}
+                      </span>
                     </Typography>
                   </CardContent>
                   <CardActions>
@@ -101,31 +163,15 @@ const Certifications = () => {
                           backgroundColor: "rgb(33, 255, 226)",
                           mx: "auto",
                           my: 1,
+                          fontSize: "1.5rem",
+                          fontWeight: "bold",
                           "&:hover": {
-                            borderColor: "#FFCC00",
-                            backgroundColor: "#000B38", // Optional hover background
+                            transform: "scale(1.05)",
                           },
                         }}
                       >
                         Validate Certificate
                       </Button>
-                                      <Button
-                                      variant="contained"
-                                      color="primary"
-                                      size="small"
-                                      startIcon={<DownloadIcon />}
-                                      onClick={() => {
-                                        const link = document.createElement("a");
-                                        link.href = cert.certificateUrl;
-                                        link.download = cert.title.replace(/\s+/g, "_") + ".pdf";
-                                        document.body.appendChild(link);
-                                        link.click();
-                                        document.body.removeChild(link);
-                                      }}
-                                      sx={{ mx: "auto", my: 1 }}
-                                    >
-                                      Download Certificate
-                                    </Button>
                     )}
                   </CardActions>
                 </div>
