@@ -24,7 +24,7 @@ const skills = [
   {
     category: "Backend development",
     skills: [
-      { name: "Python Fundamentals (Core, OOP, .NET)", level: 85 },
+      { name: "Python Fundamentals", level: 85 },
       { name: "Python .NET", level: 60 },
       { name: "Web App Development", level: 75 },
       { name: "Service App Development", level: 65 },
@@ -122,7 +122,6 @@ const Home = () => {
   }, [location]);
 
   const cardStyle = {
-    width: "100%",
     border: `2px solid ${theme.palette.primary.main}`,
     boxShadow: `0px 4px 12px ${theme.palette.primary.main}50`,
     mb: 5,
@@ -189,24 +188,44 @@ const Home = () => {
           >
             Python Course by ITAcademy:
           </Typography>
-          <Typography variant="body1" component="div" color="text.primary">
-            <ul
-              style={{ lineHeight: "1.8", listStyleType: "none", padding: 0 }}
-            >
-              <li>Python (Core, OOP, .NET)</li>
-              <li>HTML, CSS</li>
-              <li>MySQL</li>
-              <li>Web App Development</li>
-              <li>GUI Development</li>
-              <br />
-              <li>Python Data Access & Processing</li>
-              <li>Machine Learning & AI</li>
-              <li>NLP & Large Language Models</li>
-              <br />
-              <li>Test Automation & QA</li>
-              <li>Service App Development</li>
-            </ul>
-          </Typography>
+          <Box component="div" sx={{ textAlign: "center" }}>
+            {/* First group */}
+            <Typography variant="body1" color="text.primary" sx={{ mb: 0.2 }}>
+              Python Fundamentals
+            </Typography>
+            <Typography variant="body1" color="text.primary" sx={{ mb: 0.2 }}>
+              HTML & CSS
+            </Typography>
+            <Typography variant="body1" color="text.primary" sx={{ mb: 0.2 }}>
+              MySQL
+            </Typography>
+            <Typography variant="body1" color="text.primary" sx={{ mb: 0.2 }}>
+              Web App Development
+            </Typography>
+            <Typography variant="body1" color="text.primary" sx={{ mb: 2 }}>
+              GUI Development
+            </Typography>
+
+            {/* Second group */}
+            <Typography variant="body1" color="text.primary" sx={{ mb: 0.2 }}>
+              Python Data Access & Processing
+            </Typography>
+            <Typography variant="body1" color="text.primary" sx={{ mb: 0.2 }}>
+              Machine Learning & AI
+            </Typography>
+            <Typography variant="body1" color="text.primary" sx={{ mb: 2 }}>
+              NLP & Large Language Models
+            </Typography>
+
+            {/* Third group */}
+            <Typography variant="body1" color="text.primary" sx={{ mb: 0.5 }}>
+              Test Automation & QA
+            </Typography>
+            <Typography variant="body1" color="text.primary" sx={{ mb: 0.5 }}>
+              Service App Development
+            </Typography>
+          </Box>
+
           <Button
             variant="contained"
             color="secondary"
@@ -224,7 +243,6 @@ const Home = () => {
             Download CV
           </Button>
         </Card>
-
         {/* Education Card */}
         <Card sx={cardStyle}>
           <Typography
