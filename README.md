@@ -2,6 +2,9 @@
 npm create vite@latest my-portfolio -- --template react        
 vite + react + js
 
+npm install
+npm run dev
+
 
 ///////////////////////////////////////////////////////////////////////////////
 
