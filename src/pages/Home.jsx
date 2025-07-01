@@ -203,7 +203,7 @@ const Home = () => {
               Web App Development
             </Typography>
             <Typography variant="body1" color="text.primary" sx={{ mb: 2 }}>
-              GUI Development
+              Graphic App Development 
             </Typography>
 
             {/* Second group */}
