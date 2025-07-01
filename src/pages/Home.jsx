@@ -122,17 +122,19 @@ const Home = () => {
   }, [location]);
 
   const cardStyle = {
-    border: "2px solid #00ffff",
-    boxShadow: "0px 4px 12px rgba(0, 255, 255, 0.3)",
+    width: "100%",
+    maxWidth: "800px",
+    border: `2px solid ${theme.palette.primary.main}`,
+    boxShadow: `0px 4px 12px ${theme.palette.primary.main}50`,
     mb: 5,
     p: 4,
     bgcolor: theme.palette.background.default,
-    color: "white",
+    color: theme.palette.text.primary,
     borderRadius: "12px",
     transition: "transform 0.3s, box-shadow 0.3s",
     "&:hover": {
       transform: "scale(1.01)",
-      boxShadow: "0px 6px 16px rgba(0, 255, 255, 0.5)",
+      boxShadow: `0px 6px 16px ${theme.palette.primary.main}80`,
     },
   };
 
@@ -146,7 +148,7 @@ const Home = () => {
         alignItems: "center",
         justifyContent: "center",
         fontFamily: "Roboto, sans-serif",
-        mt: 8, // Margin top so content clears fixed Navbar
+        mt: 8,
       }}
     >
       <motion.div
@@ -156,50 +158,40 @@ const Home = () => {
       >
         {/* Intro Card */}
         <Card sx={cardStyle}>
-          <Grid container spacing={2} alignItems="center">
-            <Grid item xs={12} sm={12}>
-              <Box
-                sx={{ textAlign: "center", maxWidth: 800, mx: "auto", my: 0 }}
-              >
-                <Typography variant="h4" fontWeight="bold">
-                  Hi, I'm Vahedin Hamidović
-                </Typography>
-                <Typography variant="body1" paragraph>
-                  Python & FrontEnd Web Developer
-                </Typography>
-
-                <Typography variant="body1" paragraph>
-                  I am a passionate{" "}
-                  <strong>Python and Front-End Web Developer</strong> based in
-                  Serbia. I've completed a comprehensive Python Developer
-                  program at <strong>ITAcademy</strong>.
-                </Typography>
-
-                <Button
-                  variant="contained"
-                  color="secondary"
-                  onClick={() => scrollToSection("contact")}
-                  sx={{ marginBottom: "20px" }}
-                >
-                  Connect
-                </Button>
-              </Box>
-            </Grid>
-          </Grid>
+          <Typography variant="h4" fontWeight="bold" color="primary">
+            Hi, I'm Vahedin Hamidović
+          </Typography>
+          <Typography variant="body1" paragraph color="text.primary">
+            Python & FrontEnd Web Developer
+          </Typography>
+          <Typography variant="body1" paragraph color="text.primary">
+            I am a passionate{" "}
+            <strong>Python and Front-End Web Developer</strong> based in Serbia.{" "}
+            <br></br>
+            I've completed a comprehensive Python Developer program at{" "}
+            <strong>ITAcademy</strong>.
+          </Typography>
+          <Button
+            variant="contained"
+            color="secondary"
+            sx={{ mb: 2 }}
+            onClick={() => scrollToSection("contact")}
+          >
+            Connect
+          </Button>
         </Card>
 
         {/* Course Description Card */}
         <Card sx={cardStyle}>
           <Typography
-            variant="h6"
+            variant="h4"
             fontWeight="bold"
             color="primary"
             gutterBottom
           >
             Python Course by ITAcademy:
           </Typography>
-
-          <Typography variant="body1" component="div">
+          <Typography variant="body1" component="div" color="text.primary">
             <ul
               style={{ lineHeight: "1.8", listStyleType: "none", padding: 0 }}
             >
@@ -208,16 +200,15 @@ const Home = () => {
               <li>MySQL</li>
               <li>Web App Development</li>
               <li>GUI Development</li>
-              <br></br>
+              <br />
               <li>Python Data Access & Processing</li>
               <li>Machine Learning & AI</li>
               <li>NLP & Large Language Models</li>
-              <br></br>
+              <br />
               <li>Test Automation & QA</li>
               <li>Service App Development</li>
             </ul>
           </Typography>
-
           <Button
             variant="contained"
             color="secondary"
@@ -238,13 +229,18 @@ const Home = () => {
 
         {/* Education Card */}
         <Card sx={cardStyle}>
-          <Typography variant="h4" fontWeight="bold" gutterBottom>
+          <Typography
+            variant="h4"
+            fontWeight="bold"
+            gutterBottom
+            color="primary"
+          >
             EDUCATION
           </Typography>
-          <Typography variant="body1" paragraph>
+          <Typography variant="body1" paragraph color="text.primary">
             IT ACADEMY
           </Typography>
-          <Typography variant="body1" paragraph>
+          <Typography variant="body1" paragraph color="text.primary">
             Python Developer - Graduated 2024
           </Typography>
           <Button
@@ -265,12 +261,13 @@ const Home = () => {
               fontWeight="bold"
               textAlign="center"
               gutterBottom
+              color="primary"
             >
               SKILLS
             </Typography>
             {skills.map((section, index) => (
-              <Box key={index} sx={{ mb: 10 }}>
-                <Typography variant="h6" fontWeight="bold">
+              <Box key={index} sx={{ mb: 8 }}>
+                <Typography variant="h6" fontWeight="bold" color="text.primary">
                   {section.category}
                 </Typography>
                 {section.skills.map((skill, i) => (
@@ -282,35 +279,31 @@ const Home = () => {
                     sx={{ mb: 2 }}
                   >
                     <Grid item xs={3}>
-                      <Typography variant="body1" sx={{ textAlign: "left" }}>
+                      <Typography
+                        variant="body1"
+                        color="text.primary"
+                        sx={{ textAlign: "left" }}
+                      >
                         {skill.name}
                       </Typography>
                     </Grid>
-                    <Grid
-                      item
-                      xs={7}
-                      sx={{
-                        display: "flex",
-                        justifyContent: "center",
-                        alignItems: "center",
-                        width: "80%",
-                      }}
-                    >
+                    <Grid item xs={7}>
                       <LinearProgress
                         variant="determinate"
                         value={skill.level}
                         sx={{
                           height: 8,
                           borderRadius: 2,
-                          bgcolor: "white",
-                          width: "70%",
+                          bgcolor: "rgba(255,255,255,0.1)",
+                          width: "100%",
                         }}
                       />
                     </Grid>
                     <Grid item xs={2}>
                       <Typography
                         variant="body1"
-                        sx={{ textAlign: "right", minWidth: 40 }}
+                        color="text.primary"
+                        sx={{ textAlign: "right" }}
                       >
                         {skill.level}%
                       </Typography>
@@ -323,6 +316,7 @@ const Home = () => {
               variant="contained"
               color="secondary"
               onClick={() => navigate("/projects")}
+              sx={{ mt: 2 }}
             >
               View my PROJECTS
             </Button>

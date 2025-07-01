@@ -168,7 +168,7 @@ const Projects = () => {
                     alignItems="flex-start"
                     padding={2}
                   >
-                    <Typography variant="h6" fontWeight="bold">
+                    <Typography variant="h6" fontWeight="bold" color='black'>
                       {project.name}
                     </Typography>
                     <Box display="flex" gap={1} mt={0}>

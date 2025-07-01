@@ -22,6 +22,8 @@ const Navbar = ({ isHome }) => {
   };
 
   const cardStyle = {
+    width: "100%",
+    maxWidth: "800px",
     color: "white",
     borderRadius: "12px",
     transition: "transform 0.3s, box-shadow 0.3s",
@@ -42,7 +44,8 @@ const Navbar = ({ isHome }) => {
                 bgcolor: theme.palette.background.default,
                 boxShadow: "0px 4px 12px rgba(0, 255, 255, 0.3)",
                 border: "2px solid #00ffff",
-                width: "45%",
+                width: "100%",
+                maxWidth: "800px",
                 mt: 0,
                 mb: 6,
                 borderRadius: 2,
@@ -50,7 +53,6 @@ const Navbar = ({ isHome }) => {
                 right: 0,
                 marginLeft: "auto",
                 marginRight: "auto",
-
                 mx: "auto",
                 "&:hover": {
                   transform: "scale(1.01)",

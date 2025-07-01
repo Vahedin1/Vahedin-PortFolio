@@ -23,7 +23,7 @@ const theme = createTheme({
       main: "#8000ff", // Purple/Violet
     },
     warning: {
-      main: "#FFD700", // Yellow 
+      main: "#FFD700", // Yellow
     },
     background: {
       default: "rgb(0, 11, 56)",
@@ -46,10 +46,10 @@ const AppWrapper = () => (
 function App() {
   const location = useLocation(); // ✅ This is how we get current route
   const isHome = location.pathname === "/"; // ✅ Check if on Home
-
+  const hideNavbar = location.pathname === "/projects/unger";
   return (
     <div className="App">
-      <Navbar isHome={isHome} />
+       {!hideNavbar && <Navbar isHome={location.pathname === "/"} />}
       <Box sx={{ mt: isHome ? "-5px" : "0px" }}>
         <Container maxWidth="none" disableGutters sx={{ padding: "0px" }}>
           <ScrollToTop />
