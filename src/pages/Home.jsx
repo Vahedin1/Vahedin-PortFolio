@@ -17,24 +17,24 @@ const skills = [
   {
     category: "Frontend development",
     skills: [
-      { name: "HTML", level: 80 },
-      { name: "CSS", level: 80 },
+      { name: "HTML", level: 90 },
+      { name: "CSS", level: 90 },
     ],
   },
   {
     category: "Backend development",
     skills: [
-      { name: "Python Fundamentals", level: 85 },
-      { name: "Python .NET", level: 60 },
-      { name: "Web App Development", level: 75 },
-      { name: "Service App Development", level: 65 },
+      { name: "Python Fundamentals", level: 90 },
+      { name: "Python .NET", level: 65 },
+      { name: "Web App Development", level: 85 },
+      { name: "Service App Development", level: 60 },
     ],
   },
   {
     category: "Database & Data Access",
     skills: [
       { name: "MySQL", level: 70 },
-      { name: "Python Data Access", level: 65 },
+      { name: "Python Data Access", level: 60 },
     ],
   },
   {
@@ -48,7 +48,7 @@ const skills = [
     category: "Software Engineering",
     skills: [
       { name: "Test Automation & QA", level: 60 },
-      { name: "Graphic App Development (Tkinter/PyQt)", level: 70 },
+      { name: "Graphic App Development (Tkinter/PyQt)", level: 75 },
     ],
   },
   {
