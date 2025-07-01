@@ -171,7 +171,7 @@ const Home = () => {
           <Button
             variant="contained"
             color="secondary"
-            sx={{ mb: 2 }}
+            sx={{ mb: 2, fontWeight: "bold" }}
             onClick={() => scrollToSection("contact")}
           >
             Connect
@@ -230,7 +230,7 @@ const Home = () => {
             variant="contained"
             color="secondary"
             startIcon={<DownloadIcon />}
-            sx={{ mt: 2 }}
+            sx={{ mt: 2, fontWeight: "bold" }}
             onClick={() => {
               const link = document.createElement("a");
               link.href = "/assets/CV_Vahedin Hamidovic_EN.pdf";
@@ -263,7 +263,7 @@ const Home = () => {
             variant="contained"
             color="secondary"
             onClick={() => navigate("/certifications")}
-            sx={{ mt: 2 }}
+            sx={{ mt: 2, fontWeight: "bold" }}
           >
             Certification
           </Button>

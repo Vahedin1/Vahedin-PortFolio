@@ -49,7 +49,10 @@ function App() {
   const hideNavbar = location.pathname === "/projects/unger";
   return (
     <div className="App">
-       {!hideNavbar && <Navbar isHome={location.pathname === "/"} />}
+      {!hideNavbar && (
+        <Navbar isHome={["/", "/certifications"].includes(location.pathname)} />
+      )}
+
       <Box sx={{ mt: isHome ? "-5px" : "0px" }}>
         <Container maxWidth="none" disableGutters sx={{ padding: "0px" }}>
           <ScrollToTop />

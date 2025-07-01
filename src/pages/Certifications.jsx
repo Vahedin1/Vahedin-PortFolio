@@ -14,9 +14,8 @@ import { motion } from "framer-motion";
 
 const certifications = [
   {
-    title: "Python & AI Developer",
-    issuer: "IT ACADEMY",
-    date: "December 2024",
+    title: "Python Development",
+    issuer: "ITAcademy",
     validationNumber: "033267",
     images: {
       mobile: "/assets/certification-mobile.jpeg", // fallback to the single image
@@ -123,15 +122,6 @@ const Certifications = () => {
                         Issuer:
                       </span>{" "}
                       <span style={{ color: "white" }}>{cert.issuer}</span>
-                      <br />
-                      <span
-                        style={{
-                          color: "rgb(33, 255, 226)",
-                          fontWeight: "bold",
-                        }}
-                      >
-                        Date:
-                      </span>{" "}
                       <span style={{ color: "white" }}>{cert.date}</span>
                       <br />
                       <span
@@ -150,7 +140,8 @@ const Certifications = () => {
                   <CardActions>
                     {cert.showValidationButton && (
                       <Button
-                        variant="outlined"
+                        variant="contained"
+                        color="secondary"
                         size="small"
                         onClick={() =>
                           window.open(
@@ -159,15 +150,9 @@ const Certifications = () => {
                           )
                         }
                         sx={{
-                          color: "#000B38", // Text color
-                          backgroundColor: "rgb(33, 255, 226)",
                           mx: "auto",
-                          my: 1,
-                          fontSize: "1.5rem",
                           fontWeight: "bold",
-                          "&:hover": {
-                            transform: "scale(1.05)",
-                          },
+
                         }}
                       >
                         Validate Certificate
