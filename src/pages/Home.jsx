@@ -25,30 +25,30 @@ const skills = [
     category: "Backend development",
     skills: [
       { name: "Python Fundamentals", level: 90 },
-      { name: "Python .NET", level: 65 },
-      { name: "Web App Development", level: 85 },
-      { name: "Service App Development", level: 60 },
+      { name: "Python .NET", level: 55 },
+      { name: "Web App Development", level: 70 },
+      { name: "Service App Development", level: 40 },
     ],
   },
   {
     category: "Database & Data Access",
     skills: [
-      { name: "MySQL", level: 70 },
-      { name: "Python Data Access", level: 60 },
+      { name: "MySQL", level: 65 },
+      { name: "Python Data Access", level: 55 },
     ],
   },
   {
     category: "AI & Machine Learning",
     skills: [
-      { name: "Machine Learning & AI", level: 50 },
-      { name: "NLP & Large Language Models", level: 45 },
+      { name: "Machine Learning & AI", level: 35 },
+      { name: "NLP & Large Language Models", level: 40 },
     ],
   },
   {
     category: "Software Engineering",
     skills: [
-      { name: "Test Automation & QA", level: 60 },
-      { name: "Graphic App Development (Tkinter/PyQt)", level: 75 },
+      { name: "Test Automation & QA", level: 40 },
+      { name: "Graphic App Development (Tkinter/PyQt)", level: 60 },
     ],
   },
   {
