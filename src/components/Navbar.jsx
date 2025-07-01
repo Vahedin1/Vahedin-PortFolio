@@ -1,16 +1,10 @@
 import React from "react";
-import {
-  AppBar,
-  Toolbar,
-  Box,
-  Typography,
-  useMediaQuery,
-} from "@mui/material";
+import { AppBar, Toolbar, Box, Typography, useMediaQuery } from "@mui/material";
 import { Link } from "react-router-dom";
 import { useTheme } from "@mui/material/styles";
 import { Padding } from "@mui/icons-material";
 
-const Navbar = () => {
+const Navbar = ({ isHome }) => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
 
@@ -31,11 +25,29 @@ const Navbar = () => {
     <Box>
       <AppBar
         position="static"
-        sx={{
-          backgroundColor: theme.palette.background.default,
+  sx={
+    isHome
+      ? {
+          background: "linear-gradient(135deg, #001F3F, #001a35)",
+          boxShadow: "0 0 10px 2px cyan",
+          border: "2px solid cyan",
+          width: "45%",
+          mt: 4,
+          mb: 6,
+          borderRadius: 2,
+          mx: "auto",
+        }
+      : {
+          backgroundColor: "transparent", // or your desired default
           boxShadow: "none",
-        }}
-      >
+          border: "none",
+          width: "100%",
+          mt: 0,
+          mb: 0,
+          borderRadius: 0,
+        }
+  }
+>
         <Toolbar
           sx={{
             display: "flex",
