@@ -165,23 +165,26 @@ const Home = () => {
   return (
     <Container
       maxWidth="md"
-      sx={{ textAlign: "center",
+      sx={{
+        textAlign: "center",
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
-        justifyContent: "center", fontFamily: "Roboto, sans-serif" }}
+        justifyContent: "center",
+        fontFamily: "Roboto, sans-serif",
+      }}
     >
       <motion.div
         initial={{ opacity: 0, y: -30 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6}}
+        transition={{ duration: 0.6 }}
       >
         <Card sx={cardStyle}>
           <Typography variant="h4" fontWeight="bold">
             Hi, I'm Vahedin Hamidović
           </Typography>
           <Typography variant="body1" paragraph>
-             FrontEnd Developer
+            Python & FrontEnd Web Developer
           </Typography>
           <Button
             variant="contained"
@@ -211,9 +214,14 @@ const Home = () => {
                 ABOUT ME
               </Typography>
               <Typography variant="body1" paragraph>
-                Hello, my name is Vahedin Hamidović. I am a FrontEnd Developer
-                from Serbia - Sjenica.Currently actively seeking for new opportunities.I love
-                working on a variety of technologies including Web Development and Software Development.
+                I am a passionate Python
+                and Front-End Web Developer based in Serbia,I’ve completed a
+                comprehensive Python Developer program at ITAcademy. 
+                Python Course by ITAcademy: <br></br>- Python (Core, OOP, .NET) <br></br>- HTML, CSS <br></br>-
+                MySQL - <br></br>Web App Development <br></br>- Graphic User Interface (GUI) Development 
+                Data & AI: <br></br>- Python Data Access & Processing <br></br>-
+                Machine Learning & AI <br></br> - NLP & Large Language Models <br></br> Software
+                Engineering: <br></br>- Test Automation & QA <br></br> - Service App Development 
               </Typography>
               <Button
                 variant="contained"
@@ -236,10 +244,15 @@ const Home = () => {
           </Grid>
         </Card>
 
-           {/* Box wrapping the skills section */}
-           <Box id="skills2" sx={{ position: 'relative', zIndex: 1 }}>
+        {/* Box wrapping the skills section */}
+        <Box id="skills2" sx={{ position: "relative", zIndex: 1 }}>
           <Card sx={cardStyle}>
-            <Typography variant="h4" fontWeight="bold" textAlign="center" gutterBottom>
+            <Typography
+              variant="h4"
+              fontWeight="bold"
+              textAlign="center"
+              gutterBottom
+            >
               SKILLS
             </Typography>
             {skills.map((section, index) => (
@@ -248,16 +261,28 @@ const Home = () => {
                   {section.category}
                 </Typography>
                 {section.skills.map((skill, i) => (
-                  <Grid container key={i} alignItems="center" spacing={2} sx={{ mb: 2 }}>
+                  <Grid
+                    container
+                    key={i}
+                    alignItems="center"
+                    spacing={2}
+                    sx={{ mb: 2 }}
+                  >
                     <Grid item xs={3}>
                       <Typography variant="body1" sx={{ textAlign: "left" }}>
                         {skill.name}
                       </Typography>
                     </Grid>
-                    <Grid item xs={7} sx={{ display: "flex",
-    justifyContent: "center",  // Centers the progress bar horizontally
-    alignItems: "center",  // Ensures it stays vertically centered
-    width: "80%", }}>
+                    <Grid
+                      item
+                      xs={7}
+                      sx={{
+                        display: "flex",
+                        justifyContent: "center", // Centers the progress bar horizontally
+                        alignItems: "center", // Ensures it stays vertically centered
+                        width: "80%",
+                      }}
+                    >
                       <LinearProgress
                         variant="determinate"
                         value={skill.level}
@@ -270,7 +295,10 @@ const Home = () => {
                       />
                     </Grid>
                     <Grid item xs={2}>
-                      <Typography variant="body1" sx={{ textAlign: "right", minWidth: 40 }}>
+                      <Typography
+                        variant="body1"
+                        sx={{ textAlign: "right", minWidth: 40 }}
+                      >
                         {skill.level}%
                       </Typography>
                     </Grid>
@@ -297,9 +325,6 @@ const Home = () => {
           </Typography>
           <Typography variant="body1" paragraph>
             Python Developer - Graduated 2024
-          </Typography>
-          <Typography variant="body1">
-            Microsoft Development Program - Currently Enrolled
           </Typography>
           <Button
             variant="contained"

@@ -201,39 +201,6 @@ const Navbar = () => {
 
             {!isMobile && (
               <Box sx={{ display: "flex", gap: 15, ml: 15 }}>
-                <Typography
-                  sx={{
-                    ...navLinkStyle,
-                    "&:hover": {
-                      color: "white",
-                    },
-                  }}
-                  onClick={() => scrollToSection("contact")}
-                >
-                  CONTACT
-                </Typography>
-                <Typography
-                  sx={{
-                    ...navLinkStyle,
-                    "&:hover": {
-                      color: "white",
-                    },
-                  }}
-                  onClick={() => {
-                    // First navigate to root path
-                    navigate('/');
-                
-                    // Then scroll to "skills2" section after a brief delay (e.g. 500ms)
-                    setTimeout(() => {
-                      const skillsSection = document.getElementById('skills2');
-                      if (skillsSection) {
-                        skillsSection.scrollIntoView({ behavior: 'smooth' });
-                      }
-                    }, 500); // Adjust the delay as needed
-                  }}
-                >
-                  SKILLS
-                </Typography>
               </Box>
             )}
           </Toolbar>
@@ -307,45 +274,8 @@ const Navbar = () => {
       >
         PROJECTS
       </Typography>
-      <Typography
-        sx={{
-          ...menuItemStyle,
-          fontSize: {
-            xs: '1.2rem',  // Extra small screens
-            sm: '1.4rem',  // Small screens
-            md: '1.6rem',  // Medium screens
-            lg: '2rem',    // Large screens
-          },
-        }}
-        onClick={() => scrollToSection("contact")}
-      >
-        CONTACT
-      </Typography>
-      <Typography
-        sx={{
-          ...menuItemStyle,
-          fontSize: {
-            xs: '1.2rem',  // Extra small screens
-            sm: '1.4rem',  // Small screens
-            md: '1.6rem',  // Medium screens
-            lg: '2rem',    // Large screens
-          },
-        }}
-        onClick={() => {
-          // First navigate to root path
-          navigate('/');
       
-          // Then scroll to "skills2" section after a brief delay (e.g. 500ms)
-          setTimeout(() => {
-            const skillsSection = document.getElementById('skills2');
-            if (skillsSection) {
-              skillsSection.scrollIntoView({ behavior: 'smooth' });
-            }
-          }, 500); // Adjust the delay as needed
-        }}
-      >
-        SKILLS
-      </Typography>
+
     </Box>
   </motion.div>
 )}
