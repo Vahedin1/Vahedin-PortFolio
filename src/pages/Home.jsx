@@ -24,7 +24,7 @@ const skills = [
   {
     category: "Backend development",
     skills: [
-      { name: "Python (Core, OOP)", level: 85 },
+      { name: "Python Fundamentals (Core, OOP, .NET)", level: 85 },
       { name: "Python .NET", level: 60 },
       { name: "Web App Development", level: 75 },
       { name: "Service App Development", level: 65 },
@@ -123,7 +123,6 @@ const Home = () => {
 
   const cardStyle = {
     width: "100%",
-    maxWidth: "800px",
     border: `2px solid ${theme.palette.primary.main}`,
     boxShadow: `0px 4px 12px ${theme.palette.primary.main}50`,
     mb: 5,
@@ -140,7 +139,6 @@ const Home = () => {
 
   return (
     <Container
-      maxWidth="md"
       sx={{
         textAlign: "center",
         display: "flex",
