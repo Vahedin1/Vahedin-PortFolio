@@ -48,7 +48,7 @@ const skills = [
     category: "Software Engineering",
     skills: [
       { name: "Test Automation & QA", level: 60 },
-      { name: "GUI Development (Tkinter/PyQt)", level: 70 },
+      { name: "Graphic App Development (Tkinter/PyQt)", level: 70 },
     ],
   },
   {
