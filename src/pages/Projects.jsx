@@ -27,72 +27,51 @@ const projects = [
     ],
     link: "/",
   },
-  {
-    name: "",
-    image: "/assets/Untitled.png",
-    skills: [
-    ],
-    link: "/",
-  },
-  {
-    name: "Website: Project 3",
-    image: "/assets/V.png",
-    skills: [
-      { icon: faReact, color: "#61DBFB" },
-      { icon: faJs, color: "#F7DF1E" },
-    ],
-    link: "/projects/project3",
-  },
-  {
-    name: "",
-    image: "/assets/Untitled.png",
-    skills: [
-    ],
-    link: "/",
-  },
-  {
-    name: "",
-    image: "/assets/Untitled.png",
-    skills: [
-    ],
-    link: "/",
-  },
-  {
-    name: "",
-    image: "/assets/Untitled.png",
-    skills: [
-    ],
-    link: "/",
-  },
 ];
 
-  const Projects = () => {
-    const theme = useTheme();
-    const [backgroundImage, setBackgroundImage] = useState("");
-    const navigate = useNavigate();
-    
-    useEffect(() => {
-      const updateBackground = () => {
-        if (window.innerWidth < 768) {
-          document.body.style.backgroundImage =
-            "url('/assets/Project-Mobile.png')";
-        } else {
-          document.body.style.backgroundImage = "url('/assets/Project-PC.png')";
-        }
-        document.body.style.backgroundSize = "cover";
-        document.body.style.backgroundPosition = "top";
-        document.body.style.backgroundAttachment = "local";
-        
-      };
-  
-      updateBackground(); // Set initial background
-      window.addEventListener("resize", updateBackground); // Update on resize
-  
-      return () => {
-        window.removeEventListener("resize", updateBackground);
-        document.body.style.backgroundImage = ""; // Clean up on unmount
-      };
-    }, []);
+const Projects = () => {
+  const theme = useTheme();
+  const navigate = useNavigate();
+  const [backgroundImage, setBackgroundImage] = useState("");
+  const [marginTop, setMarginTop] = useState(30); // default fallback
+
+  useEffect(() => {
+    const updateBackground = () => {
+      const width = window.innerWidth;
+      let image = "";
+      let newMarginTop = 30;
+
+      if (width >= 1400) {
+        image = "/assets/BG-Project-1800.png";
+        newMarginTop = 30;
+      } else if (width >= 1200) {
+        image = "/assets/BG-Project-1400.png";
+        newMarginTop = 30;
+      } else if (width >= 992) {
+        image = "/assets/BG-Project-1000.png";
+        newMarginTop = 25;
+      } else if (width >= 768) {
+        image = "/assets/BG-Project-800.png";
+        newMarginTop = 20;
+      } else {
+        image = "/assets/BG-Project-500.png";
+        newMarginTop = 20;
+      }
+
+      setBackgroundImage(image);
+      setMarginTop(newMarginTop);
+
+      // Fallback for body background if needed
+      document.body.style.backgroundImage = `url(${image})`;
+      document.body.style.backgroundSize = "cover";
+      document.body.style.backgroundPosition = "top";
+      document.body.style.backgroundAttachment = "local";
+    };
+
+    updateBackground();
+    window.addEventListener("resize", updateBackground);
+    return () => window.removeEventListener("resize", updateBackground);
+  }, []);
 
   const handleLinkClick = (link) => {
     navigate(link); // Navigate to the target link
@@ -102,7 +81,7 @@ const projects = [
   };
 
   return (
-    <AnimatePresence mode="wait">
+    <AnimatePresence>
       <motion.div
         key={backgroundImage}
         initial={{ opacity: 0 }}
@@ -125,17 +104,23 @@ const projects = [
       <Box
         sx={{
           padding: "0px 30px 0px 0px",
-          marginTop: 30,
+          marginTop: marginTop,
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
         }}
       >
-        <Grid container spacing={3} sx={{
-    ml: { xs: 0, md: 15 },
-    mr: { xs: 0, md: 15 },
-    mt: {xs: 0, md: 0},
-  }} justifyContent="center" maxWidth={"1800px"}>
+        <Grid
+          container
+          spacing={3}
+          sx={{
+            ml: { xs: 0, md: 15 },
+            mr: { xs: 0, md: 15 },
+            mt: { xs: 0, md: 0 },
+          }}
+          justifyContent="center"
+          maxWidth={"1800px"}
+        >
           {projects.map((project, index) => (
             <Grid item xs={12} sm={12} md={9} lg={6} key={index}>
               <motion.div
@@ -154,50 +139,49 @@ const projects = [
                   }}
                   onClick={() => navigate(project.link)}
                 >
-
-                    <Box
+                  <Box
+                    sx={{
+                      position: "relative",
+                      width: "100%",
+                      height: 300,
+                      overflow: "hidden",
+                    }}
+                  >
+                    <CardMedia
+                      component="img"
+                      image={project.image}
+                      alt={project.name}
                       sx={{
-                        position: "relative",
-                        width: "100%",
-                        height: 300,
-                        overflow: "hidden",
+                        height: "300px",
+                        objectFit: "cover",
+                        transition: "transform 0.3s ease-in-out",
+                        "&:hover": {
+                          transform: "scale(1.25)",
+                        },
                       }}
-                    >
-                      <CardMedia
-                        component="img"
-                        image={project.image}
-                        alt={project.name}
-                        sx={{
-                          height: "300px",
-                          objectFit: "cover",
-                          transition: "transform 0.3s ease-in-out",
-                          "&:hover": {
-                            transform: "scale(1.25)",
-                          },
-                        }}
-                      />
-                    </Box>
+                    />
+                  </Box>
 
-                    <Box
-                      display="flex"
-                      flexDirection="column"
-                      alignItems="flex-start"
-                      padding={2}
-                    >
-                      <Typography variant="h6" fontWeight="bold">
-                        {project.name}
-                      </Typography>
-                      <Box display="flex" gap={1} mt={0}>
-                        {project.skills.map((skill, i) => (
-                          <FontAwesomeIcon
-                            key={i}
-                            icon={skill.icon}
-                            size="2x"
-                            style={{ color: skill.color }}
-                          />
-                        ))}
-                      </Box>
+                  <Box
+                    display="flex"
+                    flexDirection="column"
+                    alignItems="flex-start"
+                    padding={2}
+                  >
+                    <Typography variant="h6" fontWeight="bold">
+                      {project.name}
+                    </Typography>
+                    <Box display="flex" gap={1} mt={0}>
+                      {project.skills.map((skill, i) => (
+                        <FontAwesomeIcon
+                          key={`${project.name}-${skill.icon.iconName}-${i}`}
+                          icon={skill.icon}
+                          size="2x"
+                          style={{ color: skill.color }}
+                        />
+                      ))}
                     </Box>
+                  </Box>
                 </Card>
               </motion.div>
             </Grid>

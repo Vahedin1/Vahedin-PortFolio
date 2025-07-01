@@ -18,65 +18,40 @@ const skills = [
   {
     category: "Frontend development",
     skills: [
-      { name: "React", level: 80 },
-      { name: "JavaScript", level: 45 },
-      { name: "CSS", level: 80 },
-      { name: "MUI", level: 80 },
       { name: "HTML", level: 80 },
-      { name: "BootStrap", level: 80 },
+      { name: "CSS", level: 80 },
     ],
   },
   {
     category: "Backend development",
     skills: [
-      { name: "Django (Python)", level: 30 },
-      { name: "FastAPI (Python)", level: 15 },
-      { name: "Socket (Python)", level: 15 },
+      { name: "Python (Core, OOP)", level: 85 },
+      { name: "Python .NET", level: 60 },
+      { name: "Web App Development", level: 75 },
+      { name: "Service App Development", level: 65 },
     ],
   },
   {
-    category: "Data Access and Processing",
+    category: "Database & Data Access",
     skills: [
-      { name: "MongoDB", level: 40 },
-      { name: "SQLite", level: 75 },
-      { name: "SQL", level: 65 },
-      { name: "sqlAlchemy", level: 5 },
-    ],
-  },
-  /*
-  {
-    category: "Mobile development",
-    skills: [{ name: "C#", level: 15 }],
-  },
-  {
-    category: "Software Development",
-    skills: [
-      { name: "C#", level: 15 },
-      { name: "Python", level: 15 },
-    ],
-  },
-  {
-    category: "Cloud & DevOps",
-    skills: [
-      { name: "Docker", level: 50 },
-      { name: "CI/CD (Jenkins, GitHub Actions)", level: 50 },
+      { name: "MySQL", level: 70 },
+      { name: "Python Data Access", level: 65 },
     ],
   },
   {
     category: "AI & Machine Learning",
     skills: [
-      { name: "Scikit-learn", level: 40 },
-      { name: "Pandas & NumPy", level: 60 },
+      { name: "Machine Learning & AI", level: 50 },
+      { name: "NLP & Large Language Models", level: 45 },
     ],
   },
   {
-    category: "Game Development",
+    category: "Software Engineering",
     skills: [
-      { name: "Unity (C#)", level: 40 },
-      { name: "Game Physics", level: 35 },
+      { name: "Test Automation & QA", level: 60 },
+      { name: "GUI Development (Tkinter/PyQt)", level: 70 },
     ],
   },
-*/
   {
     category: "Spoken languages",
     skills: [
@@ -210,19 +185,78 @@ const Home = () => {
             */}
             </Grid>
             <Grid item xs={12} sm={12}>
-              <Typography variant="h4" fontWeight="bold" gutterBottom>
-                ABOUT ME
-              </Typography>
-              <Typography variant="body1" paragraph>
-                I am a passionate Python
-                and Front-End Web Developer based in Serbia,I’ve completed a
-                comprehensive Python Developer program at ITAcademy. 
-                Python Course by ITAcademy: <br></br>- Python (Core, OOP, .NET) <br></br>- HTML, CSS <br></br>-
-                MySQL - <br></br>Web App Development <br></br>- Graphic User Interface (GUI) Development 
-                Data & AI: <br></br>- Python Data Access & Processing <br></br>-
-                Machine Learning & AI <br></br> - NLP & Large Language Models <br></br> Software
-                Engineering: <br></br>- Test Automation & QA <br></br> - Service App Development 
-              </Typography>
+              <Box
+                sx={{ textAlign: "center", maxWidth: 800, mx: "auto", my: 0 }}
+              >
+                <Typography variant="h4" fontWeight="bold" gutterBottom>
+                  ABOUT ME
+                </Typography>
+
+                <Typography variant="body1" paragraph>
+                  I am a passionate{" "}
+                  <strong>Python and Front-End Web Developer</strong> based in
+                  Serbia. I've completed a comprehensive Python Developer
+                  program at <strong>ITAcademy</strong>.
+                </Typography>
+
+                <Typography
+                  variant="h6"
+                  fontWeight="bold"
+                  color="primary"
+                  gutterBottom
+                >
+                  Python Course by ITAcademy:
+                </Typography>
+
+                <Typography variant="body1" component="div">
+                  <ul
+                    style={{
+                      lineHeight: "1.8",
+                      paddingLeft: "1.2rem",
+                      listStyleType: "none",
+                      marginTop: "8px",
+                    }}
+                  >
+                    <li>Python (Core, OOP, .NET)</li>
+                    <li>HTML, CSS</li>
+                    <li>MySQL</li>
+                    <li>Web App Development</li>
+                    <li>Graphic User Interface (GUI) Development</li>
+                  </ul>
+                </Typography>
+
+
+                <Typography variant="body1" component="div">
+                  <ul
+                    style={{
+                      lineHeight: "1.8",
+                      paddingLeft: "1.2rem",
+                      listStyleType: "none",
+                      marginTop: "8px",
+                    }}
+                  >
+                    <li>Python Data Access & Processing</li>
+                    <li>Machine Learning & AI</li>
+                    <li>NLP & Large Language Models</li>
+                  </ul>
+                </Typography>
+
+
+
+                <Typography variant="body1" component="div">
+                  <ul
+                    style={{
+                      lineHeight: "1.8",
+                      paddingLeft: "1.2rem",
+                      listStyleType: "none",
+                      marginTop: "8px",
+                    }}
+                  >
+                    <li>Test Automation & QA</li>
+                    <li>Service App Development</li>
+                  </ul>
+                </Typography>
+              </Box>
               <Button
                 variant="contained"
                 startIcon={<DownloadIcon />}
@@ -311,7 +345,7 @@ const Home = () => {
               onClick={() => navigate("/projects")}
               sx={{ mt: 2 }}
             >
-              CHECK OUT MY PROJECTS
+              View my PROJECTS
             </Button>
           </Card>
         </Box>
@@ -335,7 +369,7 @@ const Home = () => {
               marginTop: "20px",
             }}
           >
-            Certifications
+            Certification
           </Button>
         </Card>
       </motion.div>
