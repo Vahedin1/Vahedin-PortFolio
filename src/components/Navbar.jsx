@@ -21,33 +21,53 @@ const Navbar = ({ isHome }) => {
     },
   };
 
+  const cardStyle = {
+    color: "white",
+    borderRadius: "12px",
+    transition: "transform 0.3s, box-shadow 0.3s",
+    "&:hover": {
+      transform: "scale(1.01)",
+      boxShadow: "0px 6px 16px rgba(0, 255, 255, 0.5)",
+    },
+  };
+
   return (
     <Box>
       <AppBar
         position="static"
-  sx={
-    isHome
-      ? {
-          background: "linear-gradient(135deg, #001F3F, #001a35)",
-          boxShadow: "0 0 10px 2px cyan",
-          border: "2px solid cyan",
-          width: "45%",
-          mt: 4,
-          mb: 6,
-          borderRadius: 2,
-          mx: "auto",
+        marginTop="100px"
+        sx={
+          isHome
+            ? {
+                bgcolor: theme.palette.background.default,
+                boxShadow: "0px 4px 12px rgba(0, 255, 255, 0.3)",
+                border: "2px solid #00ffff",
+                width: "45%",
+                mt: 0,
+                mb: 6,
+                borderRadius: 2,
+                left: 0,
+                right: 0,
+                marginLeft: "auto",
+                marginRight: "auto",
+
+                mx: "auto",
+                "&:hover": {
+                  transform: "scale(1.01)",
+                  boxShadow: "0px 6px 16px rgba(0, 255, 255, 0.5)",
+                },
+              }
+            : {
+                backgroundColor: "transparent", // or your desired default
+                boxShadow: "none",
+                border: "none",
+                width: "100%",
+                mt: 0,
+                mb: 0,
+                borderRadius: 0,
+              }
         }
-      : {
-          backgroundColor: "transparent", // or your desired default
-          boxShadow: "none",
-          border: "none",
-          width: "100%",
-          mt: 0,
-          mb: 0,
-          borderRadius: 0,
-        }
-  }
->
+      >
         <Toolbar
           sx={{
             display: "flex",

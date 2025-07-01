@@ -9,7 +9,7 @@ import Certifications from "./pages/Certifications.jsx";
 import Unger from "./pages/Unger.jsx";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import ScrollToTop from "./components/ScrollToTop.jsx";
-import { Container } from "@mui/material";
+import { Container, Box } from "@mui/material";
 import "./App.css";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 
@@ -17,10 +17,19 @@ import { ThemeProvider, createTheme } from "@mui/material/styles";
 const theme = createTheme({
   palette: {
     primary: {
-      main: "rgb(33, 255, 226)",
+      main: "rgb(33, 255, 226)", // Cyan
+    },
+    secondary: {
+      main: "#8000ff", // Purple/Violet
+    },
+    warning: {
+      main: "#FFD700", // Yellow 
     },
     background: {
       default: "rgb(0, 11, 56)",
+    },
+    text: {
+      primary: "#ffffff", // White text
     },
   },
 });
@@ -41,17 +50,19 @@ function App() {
   return (
     <div className="App">
       <Navbar isHome={isHome} />
-      <Container maxWidth="none" disableGutters sx={{ padding: "0px" }}>
-        <ScrollToTop />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/certifications" element={<Certifications />} />
-          <Route path="/projects" element={<Projects />} />
-          <Route path="/projects/unger" element={<Unger />} />
-          <Route path="/projects/project3" element={<Project3 />} />
-          <Route path="/*" element={<NoPage />} />
-        </Routes>
-      </Container>
+      <Box sx={{ mt: isHome ? "-5px" : "0px" }}>
+        <Container maxWidth="none" disableGutters sx={{ padding: "0px" }}>
+          <ScrollToTop />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/certifications" element={<Certifications />} />
+            <Route path="/projects" element={<Projects />} />
+            <Route path="/projects/unger" element={<Unger />} />
+            <Route path="/projects/project3" element={<Project3 />} />
+            <Route path="/*" element={<NoPage />} />
+          </Routes>
+        </Container>
+      </Box>
       <Footer />
     </div>
   );

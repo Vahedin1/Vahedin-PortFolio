@@ -5,7 +5,6 @@ import {
   Button,
   Container,
   Card,
-  Avatar,
   LinearProgress,
   Grid,
 } from "@mui/material";
@@ -85,7 +84,7 @@ const Home = () => {
         section.getBoundingClientRect().top + window.scrollY;
       const startPosition = window.scrollY;
       const distance = targetPosition - startPosition;
-      const duration = 800; // Adjust this value to control speed (in milliseconds)
+      const duration = 800;
       let startTime = null;
 
       const easeInOutQuad = (t, b, c, d) => {
@@ -114,7 +113,7 @@ const Home = () => {
 
   useEffect(() => {
     if (location.hash) {
-      const id = location.hash.substring(1); // Remove #
+      const id = location.hash.substring(1);
       const section = document.getElementById(id);
       if (section) {
         section.scrollIntoView({ behavior: "smooth" });
@@ -147,6 +146,7 @@ const Home = () => {
         alignItems: "center",
         justifyContent: "center",
         fontFamily: "Roboto, sans-serif",
+        mt: 8, // Margin top so content clears fixed Navbar
       }}
     >
       <motion.div
@@ -154,42 +154,18 @@ const Home = () => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
       >
-        <Card sx={cardStyle}>
-          <Typography variant="h4" fontWeight="bold">
-            Hi, I'm Vahedin Hamidović
-          </Typography>
-          <Typography variant="body1" paragraph>
-            Python & FrontEnd Web Developer
-          </Typography>
-          <Button
-            variant="contained"
-            color="primary"
-            onClick={() => scrollToSection("contact")}
-            sx={{
-              marginBottom: "20px",
-            }}
-          >
-            Connect
-          </Button>
-        </Card>
-
+        {/* Intro Card */}
         <Card sx={cardStyle}>
           <Grid container spacing={2} alignItems="center">
-            <Grid item xs={12} sm={4}>
-              {/* 
-            <Avatar
-              alt="Vahedin Hamidović"
-              src="/assets/Vahedin.png"
-              sx={{ width: 120, height: 120, margin: "auto" }}
-            />
-            */}
-            </Grid>
             <Grid item xs={12} sm={12}>
               <Box
                 sx={{ textAlign: "center", maxWidth: 800, mx: "auto", my: 0 }}
               >
-                <Typography variant="h4" fontWeight="bold" gutterBottom>
-                  ABOUT ME
+                <Typography variant="h4" fontWeight="bold">
+                  Hi, I'm Vahedin Hamidović
+                </Typography>
+                <Typography variant="body1" paragraph>
+                  Python & FrontEnd Web Developer
                 </Typography>
 
                 <Typography variant="body1" paragraph>
@@ -199,86 +175,89 @@ const Home = () => {
                   program at <strong>ITAcademy</strong>.
                 </Typography>
 
-                <Typography
-                  variant="h6"
-                  fontWeight="bold"
-                  color="primary"
-                  gutterBottom
+                <Button
+                  variant="contained"
+                  color="secondary"
+                  onClick={() => scrollToSection("contact")}
+                  sx={{ marginBottom: "20px" }}
                 >
-                  Python Course by ITAcademy:
-                </Typography>
-
-                <Typography variant="body1" component="div">
-                  <ul
-                    style={{
-                      lineHeight: "1.8",
-                      paddingLeft: "1.2rem",
-                      listStyleType: "none",
-                      marginTop: "8px",
-                    }}
-                  >
-                    <li>Python (Core, OOP, .NET)</li>
-                    <li>HTML, CSS</li>
-                    <li>MySQL</li>
-                    <li>Web App Development</li>
-                    <li>Graphic User Interface (GUI) Development</li>
-                  </ul>
-                </Typography>
-
-
-                <Typography variant="body1" component="div">
-                  <ul
-                    style={{
-                      lineHeight: "1.8",
-                      paddingLeft: "1.2rem",
-                      listStyleType: "none",
-                      marginTop: "8px",
-                    }}
-                  >
-                    <li>Python Data Access & Processing</li>
-                    <li>Machine Learning & AI</li>
-                    <li>NLP & Large Language Models</li>
-                  </ul>
-                </Typography>
-
-
-
-                <Typography variant="body1" component="div">
-                  <ul
-                    style={{
-                      lineHeight: "1.8",
-                      paddingLeft: "1.2rem",
-                      listStyleType: "none",
-                      marginTop: "8px",
-                    }}
-                  >
-                    <li>Test Automation & QA</li>
-                    <li>Service App Development</li>
-                  </ul>
-                </Typography>
+                  Connect
+                </Button>
               </Box>
-              <Button
-                variant="contained"
-                startIcon={<DownloadIcon />}
-                sx={{
-                  mt: 2,
-                }}
-                onClick={() => {
-                  const link = document.createElement("a");
-                  link.href = "/assets/CV Vahedin Hamidovic - E.pdf"; // Update with the actual path to your CV file
-                  link.download = "CV Vahedin Hamidovic - E.pdf"; // The filename for download
-                  document.body.appendChild(link);
-                  link.click();
-                  document.body.removeChild(link);
-                }}
-              >
-                Download CV
-              </Button>
             </Grid>
           </Grid>
         </Card>
 
-        {/* Box wrapping the skills section */}
+        {/* Course Description Card */}
+        <Card sx={cardStyle}>
+          <Typography
+            variant="h6"
+            fontWeight="bold"
+            color="primary"
+            gutterBottom
+          >
+            Python Course by ITAcademy:
+          </Typography>
+
+          <Typography variant="body1" component="div">
+            <ul
+              style={{ lineHeight: "1.8", listStyleType: "none", padding: 0 }}
+            >
+              <li>Python (Core, OOP, .NET)</li>
+              <li>HTML, CSS</li>
+              <li>MySQL</li>
+              <li>Web App Development</li>
+              <li>GUI Development</li>
+              <br></br>
+              <li>Python Data Access & Processing</li>
+              <li>Machine Learning & AI</li>
+              <li>NLP & Large Language Models</li>
+              <br></br>
+              <li>Test Automation & QA</li>
+              <li>Service App Development</li>
+            </ul>
+          </Typography>
+
+          <Button
+            variant="contained"
+            color="secondary"
+            startIcon={<DownloadIcon />}
+            sx={{ mt: 2 }}
+            onClick={() => {
+              const link = document.createElement("a");
+              link.href = "/assets/CV Vahedin Hamidovic - E.pdf";
+              link.download = "CV Vahedin Hamidovic - E.pdf";
+              document.body.appendChild(link);
+              link.click();
+              document.body.removeChild(link);
+            }}
+          >
+            Download CV
+          </Button>
+        </Card>
+
+        {/* Education Card */}
+        <Card sx={cardStyle}>
+          <Typography variant="h4" fontWeight="bold" gutterBottom>
+            EDUCATION
+          </Typography>
+          <Typography variant="body1" paragraph>
+            IT ACADEMY
+          </Typography>
+          <Typography variant="body1" paragraph>
+            Python Developer - Graduated 2024
+          </Typography>
+          <Button
+            variant="contained"
+            color="secondary"
+            onClick={() => navigate("/certifications")}
+            sx={{ mt: 2 }}
+          >
+            Certification
+          </Button>
+        </Card>
+
+        {/* Skills Section */}
         <Box id="skills2" sx={{ position: "relative", zIndex: 1 }}>
           <Card sx={cardStyle}>
             <Typography
@@ -312,8 +291,8 @@ const Home = () => {
                       xs={7}
                       sx={{
                         display: "flex",
-                        justifyContent: "center", // Centers the progress bar horizontally
-                        alignItems: "center", // Ensures it stays vertically centered
+                        justifyContent: "center",
+                        alignItems: "center",
                         width: "80%",
                       }}
                     >
@@ -324,7 +303,7 @@ const Home = () => {
                           height: 8,
                           borderRadius: 2,
                           bgcolor: "white",
-                          width: "70% ",
+                          width: "70%",
                         }}
                       />
                     </Grid>
@@ -342,36 +321,13 @@ const Home = () => {
             ))}
             <Button
               variant="contained"
+              color="secondary"
               onClick={() => navigate("/projects")}
-              sx={{ mt: 2 }}
             >
               View my PROJECTS
             </Button>
           </Card>
         </Box>
-
-        <Card sx={cardStyle}>
-          <Typography variant="h4" fontWeight="bold" gutterBottom>
-            EDUCATION
-          </Typography>
-          <Typography variant="body1" paragraph>
-            IT ACADEMY
-          </Typography>
-          <Typography variant="body1" paragraph>
-            Python Developer - Graduated 2024
-          </Typography>
-          <Button
-            variant="contained"
-            color="primary"
-            onClick={() => navigate("/certifications")}
-            sx={{
-              marginBottom: "20px",
-              marginTop: "20px",
-            }}
-          >
-            Certification
-          </Button>
-        </Card>
       </motion.div>
     </Container>
   );
