@@ -233,8 +233,8 @@ const Home = () => {
             sx={{ mt: 2 }}
             onClick={() => {
               const link = document.createElement("a");
-              link.href = "/assets/CV Vahedin Hamidovic - E.pdf";
-              link.download = "CV Vahedin Hamidovic - E.pdf";
+              link.href = "/assets/CV_Vahedin Hamidovic_EN.pdf";
+              link.download = "CV_Vahedin Hamidovic_EN.pdf";
               document.body.appendChild(link);
               link.click();
               document.body.removeChild(link);
