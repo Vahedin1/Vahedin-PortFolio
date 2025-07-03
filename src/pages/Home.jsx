@@ -323,12 +323,9 @@ const Home = () => {
             variant="contained"
             color="secondary"
             startIcon={<DownloadIcon />}
+            href="/assets/CV_Vahedin_Hamidovic_EN.pdf"
+            download
             sx={{ mt: 2, fontWeight: "bold" }}
-            onClick={() => {
-              component="a"
-              href = "/assets/CV_Vahedin_Hamidovic_EN.pdf";
-              download
-            }}
           >
             Download CV
           </Button>
