@@ -325,12 +325,9 @@ const Home = () => {
             startIcon={<DownloadIcon />}
             sx={{ mt: 2, fontWeight: "bold" }}
             onClick={() => {
-              const link = document.createElement("a");
-              link.href = "/assets/CV_Vahedin Hamidovic_EN.pdf";
-              link.download = "CV_Vahedin_Hamidovic_EN.pdf";
-              document.body.appendChild(link);
-              link.click();
-              document.body.removeChild(link);
+              component="a"
+              href = "/assets/CV_Vahedin_Hamidovic_EN.pdf";
+              download
             }}
           >
             Download CV
