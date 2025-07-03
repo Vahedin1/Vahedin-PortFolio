@@ -17,33 +17,40 @@ const Unger = () => {
     <div style={{ margin: 0, padding: 0 }}>
       <HeaderMenuButton />
       <Container
-        maxWidth="false"
+        maxWidth={false}
         disableGutters
         sx={{
           margin: 0,
           padding: 0,
-          backgroundColor: theme.palette.background.default, // Applying theme background color
+          backgroundColor: theme.palette.background.default,
         }}
       >
-        {/* Large Cover Image */}
-        <Box
-          sx={{
-            position: "relative",
-            width: "100%",
-            height: { xs: "50vh", md: "100vh" }, // Adjust height for mobile
-            backgroundImage: "url('/assets/project-unger.png')",
-            backgroundSize: { xs: "cover", md: "cover" }, // Contain for mobile
-            backgroundPosition: "top center",
-            backgroundRepeat: "no-repeat",
-          }}
-        />
+        {/* Large Cover Image with Link */}
+        <Link
+          href="https://unger-bau.info"
+          target="_blank"
+          rel="noopener noreferrer"
+          underline="none"
+          sx={{ display: "block", width: "100%" }}
+        >
+          <Box
+            sx={{
+              position: "relative",
+              width: "100%",
+              height: { xs: "50vh", md: "100vh" },
+              backgroundImage: "url('/assets/Unger-Project/unger-home.png')",
+              backgroundSize: "cover",
+              backgroundPosition: "top center",
+              backgroundRepeat: "no-repeat",
+            }}
+          />
+        </Link>
 
-        {/* Project Info */}
+        {/* Project Info Bar */}
         <Grid
           container
           justifyContent="center"
           alignItems="center"
-          textAlign={"center"}
           sx={{
             width: "100%",
             height: "100px",
@@ -53,26 +60,34 @@ const Unger = () => {
             textAlign: "center",
           }}
         >
-          <Grid item xs={4} sx={{ margin: 0, padding: 0 }}>
+          <Grid item xs={4}>
             <Typography variant="h5" fontWeight="bold" color="red">
               VAHA
             </Typography>
           </Grid>
-          <Grid item xs={4} sx={{ margin: 0, padding: 0 }}>
-            <Typography variant="h5" fontWeight="bold" sx={{ marginTop: { xs: 0, sm: 3 } }}>
-              <Link href="https://unger-bau.info" color="inherit" underline="none">
+          <Grid item xs={4}>
+            <Typography
+              variant="h5"
+              fontWeight="bold"
+              sx={{ marginTop: { xs: 0, sm: 3 } }}
+            >
+              <Link
+                href="https://unger-bau.info"
+                color="inherit"
+                underline="none"
+              >
                 unger-bau.info
               </Link>
             </Typography>
           </Grid>
-          <Grid item xs={4} sx={{ margin: 0, padding: 0 }}>
+          <Grid item xs={4}>
             <Typography variant="h5" color="text.secondary">
               2024
             </Typography>
           </Grid>
         </Grid>
 
-        {/* Description */}
+        {/* Description Section */}
         <Box
           sx={{
             color: "white",
@@ -80,20 +95,19 @@ const Unger = () => {
             alignItems: "center",
             textAlign: "center",
             mt: 10,
-            mr: 10,
-            ml: 10,
+            mx: 10,
           }}
         >
           <Box sx={{ marginBottom: 3 }}>
             <Typography variant="h4" fontWeight="bold" color="cyan">
               Description:
             </Typography>
-            <Typography variant="body1" sx={{ marginBottom: 0 }}>
+            <Typography variant="body1">
               Unger-Bau.info is a professional website built for a construction
               business, offering masonry and reinforced concrete construction
               services.
             </Typography>
-            <Typography variant="body1" sx={{ marginBottom: 0 }}>
+            <Typography variant="body1">
               The project is designed to provide a clear and modern user
               interface for clients to explore the company's services and
               contact information.
@@ -104,27 +118,17 @@ const Unger = () => {
             <Typography variant="h4" fontWeight="bold" color="cyan">
               Key Features:
             </Typography>
-            <Typography variant="body1" fontWeight="normal">
-              Modern and Responsive Design
-            </Typography>
-            <Typography variant="body1" fontWeight="normal">
-              Clear and Intuitive Navigation
-            </Typography>
+            <Typography variant="body1">Modern and Responsive Design</Typography>
+            <Typography variant="body1">Clear and Intuitive Navigation</Typography>
           </Box>
 
           <Box sx={{ marginBottom: 5 }}>
             <Typography variant="h4" fontWeight="bold" color="cyan">
               Built Using:
             </Typography>
-            <Typography variant="body1" fontWeight="normal">
-              JavaScript
-            </Typography>
-            <Typography variant="body1" fontWeight="normal">
-              React
-            </Typography>
-            <Typography variant="body1" fontWeight="normal">
-              MUI (Material-UI)
-            </Typography>
+            <Typography variant="body1">JavaScript</Typography>
+            <Typography variant="body1">React</Typography>
+            <Typography variant="body1">MUI (Material-UI)</Typography>
           </Box>
         </Box>
 
@@ -134,27 +138,44 @@ const Unger = () => {
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
-            flexDirection: "column", // Ensures screenshots stack vertically
-            gap: 3, // Adds space between screenshots
+            flexDirection: "column",
+            gap: 3,
+            my: 5,
           }}
         >
           {[
-            "project-screenshot1.png",
-            "project-screenshot2.png",
-            "project-screenshot3.png",
+            "unger-leinstungen.png",
+            "unger-uber-uns.png",
+            "unger-kontakt.png",
           ].map((img, index) => (
-            <Box
+            <Link
               key={index}
+              href="https://unger-bau.info"
+              target="_blank"
+              rel="noopener noreferrer"
+              underline="none"
               sx={{
-                width: { xs: "85%", md: "70%" },
-                height: { xs: "40vh", md: "85vh" }, // Adjust height for mobile
-                backgroundImage: `url('/assets/${img}')`,
-                backgroundSize: { xs: "cover", md: "cover" }, // Adjust size
-                backgroundPosition: "center",
-                mt: 5,
-                mb: 5,
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+                width: "100%",
               }}
-            />
+            >
+              <Box
+                sx={{
+                  width: { xs: "85%", md: "70%" },
+                  height: { xs: "40vh", md: "85vh" },
+                  backgroundImage: `url('/assets/Unger-Project/${img}')`,
+                  backgroundSize: "cover",
+                  backgroundPosition: "center",
+                  borderRadius: "12px",
+                  transition: "transform 0.3s ease-in-out",
+                  "&:hover": {
+                    transform: "scale(1.02)",
+                  },
+                }}
+              />
+            </Link>
           ))}
         </Box>
       </Container>

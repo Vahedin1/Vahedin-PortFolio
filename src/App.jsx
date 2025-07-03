@@ -4,12 +4,11 @@ import Footer from "./components/Footer.jsx";
 import NoPage from "./pages/NoPage.jsx";
 import Home from "./pages/Home.jsx";
 import Projects from "./pages/Projects.jsx";
-import Project3 from "./pages/Project3.jsx";
 import Certifications from "./pages/Certifications.jsx";
 import Unger from "./pages/Unger.jsx";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import ScrollToTop from "./components/ScrollToTop.jsx";
-import { Container, Box } from "@mui/material";
+import { Box } from "@mui/material";
 import "./App.css";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 
@@ -17,24 +16,23 @@ import { ThemeProvider, createTheme } from "@mui/material/styles";
 const theme = createTheme({
   palette: {
     primary: {
-      main: "rgb(33, 255, 226)", // Cyan
+      main: "rgb(33, 255, 226)",
     },
     secondary: {
-      main: "#8000ff", // Purple/Violet
+      main: "#8000ff",
     },
     warning: {
-      main: "#FFD700", // Yellow
+      main: "#FFD700",
     },
     background: {
       default: "rgb(0, 11, 56)",
     },
     text: {
-      primary: "#ffffff", // White text
+      primary: "#ffffff",
     },
   },
 });
 
-// Wrapper so we can use useLocation in App
 const AppWrapper = () => (
   <ThemeProvider theme={theme}>
     <BrowserRouter>
@@ -44,30 +42,35 @@ const AppWrapper = () => (
 );
 
 function App() {
-  const location = useLocation(); // ✅ This is how we get current route
-  const isHome = location.pathname === "/"; // ✅ Check if on Home
+  const location = useLocation();
+  const isHome = location.pathname === "/";
   const hideNavbar = location.pathname === "/projects/unger";
+
   return (
-    <div className="App">
+    <Box
+      sx={{
+        minHeight: "100vh",
+        display: "flex",
+        flexDirection: "column",
+      }}
+    >
       {!hideNavbar && (
-        <Navbar isHome={["/", "/certifications"].includes(location.pathname)} />
+        <Navbar isHome={["/", "/certifications",  ].includes(location.pathname)} />
       )}
 
-      <Box sx={{ mt: isHome ? "-5px" : "0px" }}>
-        <Container maxWidth="none" disableGutters sx={{ padding: "0px" }}>
-          <ScrollToTop />
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/certifications" element={<Certifications />} />
-            <Route path="/projects" element={<Projects />} />
-            <Route path="/projects/unger" element={<Unger />} />
-            <Route path="/projects/project3" element={<Project3 />} />
-            <Route path="/*" element={<NoPage />} />
-          </Routes>
-        </Container>
+      <Box sx={{ flex: 1, mt: isHome ? "-5px" : "0px" }}>
+        <ScrollToTop />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/certifications" element={<Certifications />} />
+          <Route path="/projects" element={<Projects />} />
+          <Route path="/projects/unger" element={<Unger />} />
+          <Route path="/*" element={<NoPage />} />
+        </Routes>
       </Box>
+
       <Footer />
-    </div>
+    </Box>
   );
 }
 

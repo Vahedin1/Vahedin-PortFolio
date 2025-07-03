@@ -51,14 +51,6 @@ const skills = [
       { name: "Graphic App Development (Tkinter/PyQt)", level: 60 },
     ],
   },
-  {
-    category: "Spoken languages",
-    skills: [
-      { name: "English", level: 80 },
-      { name: "Serbian", level: 100 },
-      { name: "Bosnian", level: 100 },
-    ],
-  },
 ];
 
 const Home = () => {
@@ -67,7 +59,7 @@ const Home = () => {
   const location = useLocation();
 
   useEffect(() => {
-    document.body.style.backgroundImage = "url('/assets/Home.png')";
+    document.body.style.backgroundImage = "url('/assets/BackGrounds/Home.png')";
     document.body.style.backgroundSize = "cover";
     document.body.style.backgroundPosition = "top";
     document.body.style.backgroundAttachment = "fixed";
@@ -145,7 +137,7 @@ const Home = () => {
         alignItems: "center",
         justifyContent: "center",
         fontFamily: "Roboto, sans-serif",
-        mt: 8,
+        mt: 4,
       }}
     >
       <motion.div
@@ -153,28 +145,124 @@ const Home = () => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
       >
-        {/* Intro Card */}
-        <Card sx={cardStyle}>
-          <Typography variant="h4" fontWeight="bold" color="primary">
+        <Card sx={{ ...cardStyle, p: 4 }}>
+          {/* Avatar/Image */}
+          <Box sx={{ display: "flex", justifyContent: "center", mb: 2 }}>
+            <Box
+              component="img"
+              src="/assets/Vahedin.png"
+              alt="Vahedin Hamidović"
+              sx={{
+                width: 120,
+                height: 120,
+                borderRadius: "50%",
+                objectFit: "cover",
+                border: `3px solid ${theme.palette.primary.main}`,
+                boxShadow: `0 4px 10px ${theme.palette.primary.main}66`,
+              }}
+            />
+          </Box>
+          <Typography
+            variant="h4"
+            fontWeight="bold"
+            color="primary"
+            gutterBottom
+          >
             Hi, I'm Vahedin Hamidović
           </Typography>
-          <Typography variant="body1" paragraph color="text.primary">
-            Python & FrontEnd Web Developer
+
+          <Typography variant="body1" color="text.primary" paragraph>
+            Python & Front-End Web Developer
           </Typography>
-          <Typography variant="body1" paragraph color="text.primary">
+
+          <Typography variant="body1" color="text.primary" paragraph>
             I am a passionate{" "}
-            <strong>Python and Front-End Web Developer</strong> based in Serbia.{" "}
-            <br></br>
+            <strong>Python and Front-End Web Developer</strong> based in Serbia.
+            <br />
             I've completed a comprehensive Python Developer program at{" "}
             <strong>ITAcademy</strong>.
+          </Typography>
+
+          {/* Grid Info Section */}
+          <Box sx={{ mt: 2 }}>
+            <Grid container spacing={2}>
+              {/* Left column */}
+              <Grid item xs={12} sm={6}>
+                <Box
+                  component="ul"
+                  sx={{ pl: 3, mt: 0, textAlign: "left", listStyle: "none" }}
+                >
+                  <Typography variant="body1" color="text.primary" gutterBottom>
+                    <strong>Country:</strong> Serbia
+                  </Typography>
+                  <Typography variant="body1" color="text.primary" gutterBottom>
+                    <strong>City:</strong> Sjenica
+                  </Typography>
+                  <Typography variant="body1" color="text.primary" gutterBottom>
+                    <strong>Age:</strong> 21
+                  </Typography>
+                </Box>
+              </Grid>
+
+              {/* Right column */}
+              <Grid item xs={12} sm={6}>
+                <Typography variant="body1" color="text.primary" gutterBottom>
+                  <strong>Languages:</strong>
+                </Typography>
+                <Box component="ul" sx={{ pl: 3, mt: 0 }}>
+                  <Typography variant="body2" color="text.primary">
+                    English
+                  </Typography>
+                  <Typography variant="body2" color="text.primary">
+                    Serbian
+                  </Typography>
+                  <Typography variant="body2" color="text.primary">
+                    Bosnian
+                  </Typography>
+                </Box>
+              </Grid>
+            </Grid>
+
+            {/* Email below the grid */}
+            <Box sx={{ mt: 2 }}>
+              <Typography variant="body1" color="text.primary" gutterBottom>
+                <strong>Email:</strong> hamidovicvahedin1@gmail.com
+              </Typography>
+            </Box>
+          </Box>
+          <Button
+            variant="contained"
+            color="secondary"
+            sx={{ mt: 3, fontWeight: "bold" }}
+            onClick={() => scrollToSection("contact")}
+          >
+            Connect
+          </Button>
+        </Card>
+
+        {/* Education Card */}
+        <Card sx={cardStyle}>
+          <Typography
+            variant="h4"
+            fontWeight="bold"
+            gutterBottom
+            color="primary"
+          >
+            EDUCATION
+          </Typography>
+          <Typography variant="body1" paragraph color="text.primary">
+            IT ACADEMY
+          </Typography>
+          <Typography variant="body1" paragraph color="text.primary">
+            Python Developer - Graduated 2024
           </Typography>
           <Button
             variant="contained"
             color="secondary"
-            sx={{ mb: 2, fontWeight: "bold" }}
-            onClick={() => scrollToSection("contact")}
+            onClick={() => navigate("/certifications")}
+            sx={{ mt: 2, fontWeight: "bold" }}
           >
-            Connect
+            Certification
           </Button>
         </Card>
 
@@ -203,7 +291,7 @@ const Home = () => {
               Web App Development
             </Typography>
             <Typography variant="body1" color="text.primary" sx={{ mb: 2 }}>
-              Graphic App Development 
+              Graphic App Development
             </Typography>
 
             {/* Second group */}
@@ -241,31 +329,6 @@ const Home = () => {
             }}
           >
             Download CV
-          </Button>
-        </Card>
-        {/* Education Card */}
-        <Card sx={cardStyle}>
-          <Typography
-            variant="h4"
-            fontWeight="bold"
-            gutterBottom
-            color="primary"
-          >
-            EDUCATION
-          </Typography>
-          <Typography variant="body1" paragraph color="text.primary">
-            IT ACADEMY
-          </Typography>
-          <Typography variant="body1" paragraph color="text.primary">
-            Python Developer - Graduated 2024
-          </Typography>
-          <Button
-            variant="contained"
-            color="secondary"
-            onClick={() => navigate("/certifications")}
-            sx={{ mt: 2, fontWeight: "bold" }}
-          >
-            Certification
           </Button>
         </Card>
 

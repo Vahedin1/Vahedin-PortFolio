@@ -14,7 +14,7 @@ import { motion } from "framer-motion";
 
 const certifications = [
   {
-    title: "Python Development",
+    courseName: "Python & Ai Developer",
     issuer: "ITAcademy",
     validationNumber: "033267",
     images: {
@@ -23,27 +23,28 @@ const certifications = [
     },
     showValidationButton: true,
   },
-  /* 
-  {
-    title: "Microsoft Development Program (C#)",
-    issuer: "IT ACADEMY",
-    date: "Currently Enrolled",
-    validationNumber: "N/A",
-    images: {
-      mobile: "/assets/certification-mobile.jpeg",
-      pc: "/assets/certification-pc.png",
-    },
-    showValidationButton: true,
-  },*/
 ];
 
 const Certifications = () => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
 
+  const cardStyle = {
+    border: `2px solid ${theme.palette.primary.main}`,
+    boxShadow: `0px 4px 12px ${theme.palette.primary.main}50`,
+    p: 4,
+    bgcolor: theme.palette.background.default,
+    color: theme.palette.text.primary,
+    borderRadius: "12px",
+    transition: "transform 0.3s, box-shadow 0.3s",
+    "&:hover": {
+      transform: "scale(1.01)",
+      boxShadow: `0px 6px 16px ${theme.palette.primary.main}80`,
+    },
+  };
   return (
     <div
-      style={{ background: theme.palette.background.default, padding: "20px" }}
+      style={{ background: theme.palette.background.default, padding: "0px" }}
     >
       <Grid container spacing={2} justifyContent="center">
         {certifications.map((cert, index) => {
@@ -67,14 +68,13 @@ const Certifications = () => {
             >
               <Card
                 sx={{
-                  maxWidth: "none",
+                  maxWidth: isMobile ? "95%" : "850px",
                   textAlign: "center",
                   mx: "auto",
-                  mt: 5,
+                  mt: isMobile ? 0 : 0,
                   mb: 0,
                   backgroundColor: "transparent",
-                  display: "inline-block", // Ensures the card is inline-block
-                  boxShadow: "none", // ← prevent MUI shadows
+                  boxShadow: "none",
                   border: "none",
                 }}
               >
@@ -89,11 +89,15 @@ const Certifications = () => {
                       image={imageToShow}
                       alt={`${cert.title} - Image`}
                       sx={{
-                        height: 700,
-                        width: "850px",
+                        width: isMobile ? "90%" : "700px",
+                        height: isMobile ? "auto" : "500px",
+                        maxHeight: "100%",
+                        objectFit: "contain",
                         margin: "0 auto",
-                        paddingTop: "60px",
+                        paddingTop: isMobile ? "15px" : "30px",
                         display: "block",
+                        borderRadius: "12px",
+                        boxShadow: "0 4px 20px rgba(0, 0, 0, 0.2)",
                       }}
                     />
                   </motion.div>
@@ -101,22 +105,32 @@ const Certifications = () => {
                 <div style={{ backgroundColor: "#000B38" }}>
                   <CardContent>
                     <Typography
-                      gutterBottom
                       variant="h6"
+                      noWrap
                       sx={{
                         fontWeight: "bold",
                         fontSize: "1.5rem",
                         color: "rgb(33, 255, 226)",
                       }}
                     >
-                      {cert.title}
-                    </Typography>
-
-                    <Typography variant="body2" sx={{ fontSize: "1.5rem" }}>
                       <span
                         style={{
                           color: "rgb(33, 255, 226)",
                           fontWeight: "bold",
+                        }}
+                      >
+                        Course:
+                      </span>{" "}
+                      <span style={{ color: "white" }}>{cert.courseName}</span>
+                    </Typography>
+
+                    <Typography
+                      variant="h6"
+                      sx={{ fontSize: "1.5rem", fontWeight: "bold" }}
+                    >
+                      <span
+                        style={{
+                          color: "rgb(33, 255, 226)",
                         }}
                       >
                         Issuer:
@@ -136,29 +150,29 @@ const Certifications = () => {
                         {cert.validationNumber}
                       </span>
                     </Typography>
+                    <CardActions>
+                      {cert.showValidationButton && (
+                        <Button
+                          variant="contained"
+                          color="secondary"
+                          size="small"
+                          onClick={() =>
+                            window.open(
+                              "https://www.link-group.eu/certificate/",
+                              "_blank"
+                            )
+                          }
+                          sx={{
+                            mx: "auto",
+                            fontWeight: "bold",
+                            fontSize: "1.2rem",
+                          }}
+                        >
+                          Validate Certificate
+                        </Button>
+                      )}
+                    </CardActions>
                   </CardContent>
-                  <CardActions>
-                    {cert.showValidationButton && (
-                      <Button
-                        variant="contained"
-                        color="secondary"
-                        size="small"
-                        onClick={() =>
-                          window.open(
-                            "https://www.link-group.eu/certificate/",
-                            "_blank"
-                          )
-                        }
-                        sx={{
-                          mx: "auto",
-                          fontWeight: "bold",
-
-                        }}
-                      >
-                        Validate Certificate
-                      </Button>
-                    )}
-                  </CardActions>
                 </div>
               </Card>
             </Grid>

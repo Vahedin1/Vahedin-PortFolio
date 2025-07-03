@@ -9,7 +9,7 @@ import { useNavigate } from "react-router-dom";
 const projects = [
   {
     name: "Website: Unger-Bau.info",
-    image: "/assets/project-unger.png",
+    image: "/assets/Unger-Project/unger-home.png",
     skills: [
       { icon: faReact, color: "#61DBFB" },
       { icon: faJs, color: "#F7DF1E" },
@@ -19,7 +19,7 @@ const projects = [
   },
   {
     name: "Website: Vahedin Portfolio",
-    image: "/assets/Vahedins-Portfolio.PNG",
+    image: "/assets/PortFolio-Project/Vahedins-Portfolio.PNG",
     skills: [
       { icon: faReact, color: "#61DBFB" },
       { icon: faJs, color: "#F7DF1E" },
@@ -42,19 +42,19 @@ const Projects = () => {
       let newMarginTop = 30;
 
       if (width >= 1400) {
-        image = "/assets/BG-Project-1800.png";
+        image = "/assets/BackGrounds/BG-Project-1800.png";
         newMarginTop = 30;
       } else if (width >= 1200) {
-        image = "/assets/BG-Project-1400.png";
+        image = "/assets/BackGrounds/BG-Project-1400.png";
         newMarginTop = 30;
       } else if (width >= 992) {
-        image = "/assets/BG-Project-1000.png";
+        image = "/assets/BackGrounds/BG-Project-1000.png";
         newMarginTop = 25;
       } else if (width >= 768) {
-        image = "/assets/BG-Project-800.png";
+        image = "/assets/BackGrounds/BG-Project-800.png";
         newMarginTop = 20;
       } else {
-        image = "/assets/BG-Project-500.png";
+        image = "/assets/BackGrounds/BG-Project-500.png";
         newMarginTop = 20;
       }
 
