@@ -38,7 +38,7 @@ const Unger = () => {
               position: "relative",
               width: "100%",
               height: { xs: "50vh", md: "100vh" },
-              backgroundImage: "url('/assets/Unger-Project/unger-home.png')",
+              backgroundImage: "url('/assets/unger-project/unger-home.png')",
               backgroundSize: "cover",
               backgroundPosition: "top center",
               backgroundRepeat: "no-repeat",
@@ -165,7 +165,7 @@ const Unger = () => {
                 sx={{
                   width: { xs: "85%", md: "70%" },
                   height: { xs: "40vh", md: "85vh" },
-                  backgroundImage: `url('/assets/Unger-Project/${img}')`,
+                  backgroundImage: `url('/assets/unger-project/${img}')`,
                   backgroundSize: "cover",
                   backgroundPosition: "center",
                   borderRadius: "12px",

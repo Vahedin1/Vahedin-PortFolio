@@ -12,8 +12,8 @@ const Footer = () => {
 
   const backgroundImage =
     location.pathname === "/projects"
-      ? "url('/assets/BackGrounds/Footer-Blue-Yellow.png')"
-      : "url('/assets/BackGrounds/Footer-Blue.png')";
+      ? "url('/assets/backgrounds/Footer-Blue-Yellow.png')"
+      : "url('/assets/backgrounds/Footer-Blue.png')";
 
   const hideFooter = location.pathname === "/projects/unger";
 

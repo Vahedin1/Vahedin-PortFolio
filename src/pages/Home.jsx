@@ -59,7 +59,7 @@ const Home = () => {
   const location = useLocation();
 
   useEffect(() => {
-    document.body.style.backgroundImage = "url('/assets/BackGrounds/Home.png')";
+    document.body.style.backgroundImage = "url('/assets/backgrounds/Home.png')";
     document.body.style.backgroundSize = "cover";
     document.body.style.backgroundPosition = "top";
     document.body.style.backgroundAttachment = "fixed";
@@ -185,7 +185,12 @@ const Home = () => {
 
           {/* Grid Info Section */}
           <Box sx={{ mt: 2 }}>
-            <Grid container spacing={2}>
+            <Grid
+              container
+              spacing={2}
+              direction={{ xs: "column", sm: "row" }}
+              alignItems="center"
+            >
               {/* Left column */}
               <Grid item xs={12} sm={6}>
                 <Box
@@ -322,7 +327,7 @@ const Home = () => {
             onClick={() => {
               const link = document.createElement("a");
               link.href = "/assets/CV_Vahedin Hamidovic_EN.pdf";
-              link.download = "CV_Vahedin Hamidovic_EN.pdf";
+              link.download = "CV_Vahedin_Hamidovic_EN.pdf";
               document.body.appendChild(link);
               link.click();
               document.body.removeChild(link);
