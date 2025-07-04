@@ -53,6 +53,8 @@ const Footer = () => {
         >
           FOLLOW ME
         </Typography>
+        
+        {/* Icon Section*/}
         <Box sx={{ display: "flex", gap: 2, justifyContent: "center" }}>
           <IconButton
             component="a"
@@ -82,6 +84,7 @@ const Footer = () => {
         </Box>
       </Box>
 
+      {/* Link/Author Section */}
       <Typography
         variant="body2"
         sx={{

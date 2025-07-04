@@ -9,11 +9,25 @@ const projects = [
     name: " Unger-Bau.info",
     image: "/assets/unger-project/unger-home.png",
     link: "/projects/unger",
+    icons: [
+      "/assets/icons/react.svg",
+      "/assets/icons/materialui.svg",
+      "/assets/icons/javascript.svg",
+      "/assets/icons/html5.svg",
+      "/assets/icons/css3.svg",
+    ],
   },
   {
     name: "Personal Portfolio",
     image: "/assets/portfolio-project/Vahedins-Portfolio.PNG",
     link: "/",
+    icons: [
+      "/assets/icons/react.svg",
+      "/assets/icons/materialui.svg",
+      "/assets/icons/javascript.svg",
+      "/assets/icons/html5.svg",
+      "/assets/icons/css3.svg",
+    ],
   },
 ];
 
@@ -63,10 +77,10 @@ const Projects = () => {
       <AnimatePresence>
         <motion.div
           key={backgroundImage || "bg-default"}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
+          initial={{ opacity: 0, y: -50 }}
+          animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0 }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
           style={{
             position: "fixed",
             top: 0,
@@ -91,17 +105,26 @@ const Projects = () => {
           justifyContent: "center",
           alignItems: "center",
 
-          "@media (max-width: 400px)": {
-            mt: 20,
+          "@media (max-width: 355px)": {
+            mt: 17,
           },
-          "@media (min-width: 401px) and (max-width: 600px)": {
+          "@media (min-width: 356px) and (max-width: 400px)": {
+            mt: 21,
+          },
+          "@media (min-width: 401px) and (max-width: 500px)": {
+            mt: 22,
+          },
+          "@media (min-width: 501px) and (max-width: 550px)": {
             mt: 25,
+          },
+          "@media (min-width: 551px) and (max-width: 600px)": {
+            mt: 27,
           },
           "@media (min-width: 601px) and (max-width: 700px)": {
             mt: 20,
           },
           "@media (min-width: 701px) and (max-width: 800px)": {
-            mt: 30,
+            mt: 23,
           },
           "@media (min-width: 801px) and (max-width: 900px)": {
             mt: 30,
@@ -203,21 +226,43 @@ const Projects = () => {
                         opacity: 0,
                         transition:
                           "transform 0s ease-in-out, opacity 0.3s ease-in-out",
-                        zIndex: 2, // ensures it's above CardMedia
+                        zIndex: 2,
                       }}
                     />
 
+                    {/* White Info Box on bottom of image projects*/}
                     <Box
                       position="absolute"
                       bottom={0}
                       left={0}
                       right={0}
-                      bgcolor="rgba(255, 255, 255, 0.85)"
+                      bgcolor="white" // solid white, no transparency
                       padding={2}
+                      textAlign="center"
                     >
                       <Typography variant="h6" fontWeight="bold" color="black">
                         {project.name}
                       </Typography>
+
+                      {/* Icon Row */}
+                      <Box
+                        mt={1}
+                        display="flex"
+                        justifyContent="center"
+                        alignItems="center"
+                        gap={1}
+                        flexWrap="wrap"
+                      >
+                        {project.icons?.map((icon, i) => (
+                          <Box
+                            key={i}
+                            component="img"
+                            src={icon}
+                            alt="tech-icon"
+                            sx={{ width: 24, height: 24 }}
+                          />
+                        ))}
+                      </Box>
                     </Box>
                   </Card>
                 </motion.div>

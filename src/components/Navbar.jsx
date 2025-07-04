@@ -20,7 +20,7 @@ const Navbar = ({ isHome }) => {
       sx={{
         bgcolor: theme.palette.background.default,
         boxShadow: isHome ? "0px 4px 12px rgba(0, 255, 255, 0.3)" : "none",
-        borderBottom: isHome ? "2px solid #00ffff": "none",
+        borderBottom: isHome ? "2px solid #00ffff" : "none",
 
         borderRadius: isHome ? 2 : 0,
         width: "100%",
@@ -38,6 +38,7 @@ const Navbar = ({ isHome }) => {
             py: 2,
           }}
         >
+          {/* Home */}
           <Typography
             component={Link}
             to="/"
@@ -55,6 +56,7 @@ const Navbar = ({ isHome }) => {
           >
             HOME
           </Typography>
+          {/* Projects*/}
           <Typography
             component={Link}
             to="/projects"

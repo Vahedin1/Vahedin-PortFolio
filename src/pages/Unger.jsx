@@ -18,7 +18,7 @@ const Unger = () => {
       style={{
         margin: 0,
         padding: 0,
-        backgroundColor: "#0a0a0a", // dark background color for entire page
+        backgroundColor: "#0a0a0a", // bg color for page
         minHeight: "100vh",
       }}
     >
@@ -29,7 +29,7 @@ const Unger = () => {
         sx={{
           margin: 0,
           padding: 0,
-          backgroundColor: "0a0a0a",
+          backgroundColor: "0a0a0a", // bgc color for page
         }}
       >
         {/* Large Cover Image with Link */}
@@ -44,7 +44,7 @@ const Unger = () => {
             sx={{
               position: "relative",
               width: "100%",
-              height: { xs: "79vh", md: "79vh" }, // reduced height
+              height: { xs: "79vh", md: "79vh" }, 
               backgroundImage: "url('/assets/unger-project/unger-home.png')",
               backgroundSize: "cover",
               backgroundPosition: "center top",
@@ -53,6 +53,8 @@ const Unger = () => {
           />
         </Link>
 
+
+        {/* White Big Info Box*/}
         <Box
           sx={{
             width: "100%",
@@ -75,7 +77,7 @@ const Unger = () => {
             spacing={{ xs: 2, md: 4 }}
             flexWrap="wrap"
           >
-            {/* VAHEDIN */}
+            {/* Author */}
             <Grid item>
               <Typography
                 variant="h4"
@@ -90,6 +92,7 @@ const Unger = () => {
               </Typography>
             </Grid>
 
+            {/* Devider  */}
             <Grid item>
               <Box
                 sx={{
@@ -145,7 +148,7 @@ const Unger = () => {
                 2024
               </Typography>
             </Grid>
-
+            {/* Devider  */}
             <Grid item>
               <Box
                 sx={{
@@ -225,7 +228,7 @@ const Unger = () => {
           </Box>
         </Box>
 
-        {/* Project Screenshots */}
+        {/* Project Screenshots showcase section */}
         <Box
           sx={{
             display: "flex",

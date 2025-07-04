@@ -141,9 +141,9 @@ const Home = () => {
       }}
     >
       <motion.div
-        initial={{ opacity: 0, y: -30 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
+        initial={{ opacity: 0, x: -50 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
       >
         <Card sx={{ ...cardStyle, p: 4 }}>
           {/* Avatar/Image */}
@@ -162,6 +162,7 @@ const Home = () => {
               }}
             />
           </Box>
+          {/*Introduction Section */}
           <Typography
             variant="h4"
             fontWeight="bold"
@@ -271,7 +272,7 @@ const Home = () => {
           </Button>
         </Card>
 
-        {/* Course Description Card */}
+        {/* Course Description Card, only for description */}
         <Card sx={cardStyle}>
           <Typography
             variant="h4"
@@ -331,7 +332,7 @@ const Home = () => {
           </Button>
         </Card>
 
-        {/* Skills Section */}
+        {/* Skills Section = showcase level */}
         <Box id="skills2" sx={{ position: "relative", zIndex: 1 }}>
           <Card sx={cardStyle}>
             <Typography
