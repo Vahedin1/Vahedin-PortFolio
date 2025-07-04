@@ -46,46 +46,85 @@ const Unger = () => {
           />
         </Link>
 
-        {/* Project Info Bar */}
-        <Grid
-          container
-          justifyContent="center"
-          alignItems="center"
+        {/* Project Info Bar — Styled like RAWMEN */}
+        <Box
           sx={{
-            width: "100%",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
             height: "100px",
-            py: 2,
-            backgroundColor: "white",
-            color: "black",
-            textAlign: "center",
+            backgroundColor: "#E0E0E0",
+            px: 2,
+            gap: 4,
+            mt: "-5px",
           }}
         >
-          <Grid item xs={4}>
-            <Typography variant="h5" fontWeight="bold" color="red">
-              VAHA
-            </Typography>
-          </Grid>
-          <Grid item xs={4}>
+          {/* Left: Author */}
+          <Typography
+            variant="h6"
+            sx={{
+              fontWeight: "bold",
+              fontFamily: "'Helvetica Neue', sans-serif",
+              fontSize: "1rem",
+              color: "#d60000",
+            }}
+          >
+            VAHEDIN
+          </Typography>
+
+          {/* Divider */}
+          <Box
+            sx={{
+              width: "6px",
+              height: "60%",
+              backgroundColor: "#E0E0E0",
+              borderLeft: "4px solid #d69a7c", // beige-style bar
+            }}
+          />
+
+          {/* Center: Project Title and Link */}
+          <Box sx={{ textAlign: "center" }}>
             <Typography
               variant="h5"
-              fontWeight="bold"
-              sx={{ marginTop: { xs: 0, sm: 3 } }}
+              sx={{
+                fontWeight: "bold",
+                fontSize: "1.6rem",
+                color: "#081349", // UNGER BAU color
+                fontFamily: "'Helvetica Neue', sans-serif",
+              }}
             >
-              <Link
-                href="https://unger-bau.info"
-                color="inherit"
-                underline="none"
-              >
-                unger-bau.info
-              </Link>
+              UNGER BAU
             </Typography>
-          </Grid>
-          <Grid item xs={4}>
-            <Typography variant="h5" color="text.secondary">
-              2024
-            </Typography>
-          </Grid>
-        </Grid>
+
+            <Link
+              href="https://unger-bau.info"
+              target="_blank"
+              rel="noopener noreferrer"
+              underline="always"
+              sx={{
+                fontSize: "1.1rem",
+                color: "#0000ee",
+                fontFamily: "'Helvetica Neue', sans-serif",
+                fontWeight: 500,
+                textDecoration: "underline",
+              }}
+            >
+              unger-bau.info
+            </Link>
+          </Box>
+
+          {/* Right: Year */}
+          <Typography
+            variant="body1"
+            sx={{
+              fontWeight: "medium",
+              fontSize: "1rem",
+              color: "#888",
+            }}
+          >
+            2024
+          </Typography>
+        </Box>
 
         {/* Description Section */}
         <Box
@@ -118,8 +157,12 @@ const Unger = () => {
             <Typography variant="h4" fontWeight="bold" color="cyan">
               Key Features:
             </Typography>
-            <Typography variant="body1">Modern and Responsive Design</Typography>
-            <Typography variant="body1">Clear and Intuitive Navigation</Typography>
+            <Typography variant="body1">
+              Modern and Responsive Design
+            </Typography>
+            <Typography variant="body1">
+              Clear and Intuitive Navigation
+            </Typography>
           </Box>
 
           <Box sx={{ marginBottom: 5 }}>
