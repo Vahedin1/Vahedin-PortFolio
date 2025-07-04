@@ -6,12 +6,12 @@ import { useNavigate } from "react-router-dom";
 
 const projects = [
   {
-    name: "Website: Unger-Bau.info",
+    name: " Unger-Bau.info",
     image: "/assets/unger-project/unger-home.png",
     link: "/projects/unger",
   },
   {
-    name: "Website: Vahedin Portfolio",
+    name: "Personal Portfolio",
     image: "/assets/portfolio-project/Vahedins-Portfolio.PNG",
     link: "/",
   },
@@ -165,9 +165,10 @@ const Projects = () => {
                       position: "relative",
                       overflow: "hidden",
                       aspectRatio: "1 / 1",
-                      transition: "border-bottom 0.3s ease-in-out",
-                      "&:hover": {
-                        borderBottom: `4px solid ${theme.palette.primary.main}`,
+                      cursor: "pointer",
+                      "&:hover .hover-underline": {
+                        opacity: 1,
+                        transform: "scaleX(1)",
                       },
                     }}
                     onClick={() => handleLinkClick(project.link)}
@@ -182,10 +183,30 @@ const Projects = () => {
                         objectFit: "cover",
                         transition: "transform 0.3s ease-in-out",
                         "&:hover": {
-                          transform: "scale(1.1)",
+                          transform: "scale(1.025)",
                         },
                       }}
                     />
+
+                    {/* Hover Underline Box */}
+                    <Box
+                      className="hover-underline"
+                      sx={{
+                        position: "absolute",
+                        bottom: 0,
+                        left: 0,
+                        height: "10px",
+                        width: "100%",
+                        backgroundColor: "aqua",
+                        transform: "scaleX(0)",
+                        transformOrigin: "left",
+                        opacity: 0,
+                        transition:
+                          "transform 0s ease-in-out, opacity 0.3s ease-in-out",
+                        zIndex: 2, // ensures it's above CardMedia
+                      }}
+                    />
+
                     <Box
                       position="absolute"
                       bottom={0}
