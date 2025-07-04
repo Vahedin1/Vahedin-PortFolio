@@ -13,11 +13,8 @@ npm run dev
 https://www.linkedin.com/in/vahedin-hamidovic-790251338/
 https://github.com/Vahedin1
 hamidovicvahedin1@gmail.com
+hamidovicvahedin.netlify.app
 
-About me:
-I am a passionate Python Developer and Front-End Developer with hands-on experience in building dynamic web applications using React JS and Material UI. Currently, I am advancing my skills through the Microsoft Development Program at IT Academy.
-
-Let's connect and collaborate on exciting projects!
 
 
 

@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Grid, Card, CardMedia, Box, Typography } from "@mui/material";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useTheme } from "@mui/material/styles";
-import { faReact, faJs, faHtml5 } from "@fortawesome/free-brands-svg-icons";
 import { motion, AnimatePresence } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 
@@ -10,21 +8,11 @@ const projects = [
   {
     name: "Website: Unger-Bau.info",
     image: "/assets/unger-project/unger-home.png",
-    skills: [
-      { icon: faReact, color: "#61DBFB" },
-      { icon: faJs, color: "#F7DF1E" },
-      { icon: faHtml5, color: "#E44D26" },
-    ],
     link: "/projects/unger",
   },
   {
     name: "Website: Vahedin Portfolio",
     image: "/assets/portfolio-project/Vahedins-Portfolio.PNG",
-    skills: [
-      { icon: faReact, color: "#61DBFB" },
-      { icon: faJs, color: "#F7DF1E" },
-      { icon: faHtml5, color: "#E44D26" },
-    ],
     link: "/",
   },
 ];
@@ -176,6 +164,7 @@ const Projects = () => {
                     sx={{
                       position: "relative",
                       overflow: "hidden",
+                      aspectRatio: "1 / 1",
                       transition: "border-bottom 0.3s ease-in-out",
                       "&:hover": {
                         borderBottom: `4px solid ${theme.palette.primary.main}`,
@@ -183,48 +172,31 @@ const Projects = () => {
                     }}
                     onClick={() => handleLinkClick(project.link)}
                   >
-                    <Box
+                    <CardMedia
+                      component="img"
+                      image={project.image}
+                      alt={project.name}
                       sx={{
-                        position: "relative",
                         width: "100%",
-                        height: 300,
-                        overflow: "hidden",
+                        height: "100%",
+                        objectFit: "cover",
+                        transition: "transform 0.3s ease-in-out",
+                        "&:hover": {
+                          transform: "scale(1.1)",
+                        },
                       }}
-                    >
-                      <CardMedia
-                        component="img"
-                        image={project.image}
-                        alt={project.name}
-                        sx={{
-                          height: "300px",
-                          objectFit: "cover",
-                          transition: "transform 0.3s ease-in-out",
-                          "&:hover": {
-                            transform: "scale(1.25)",
-                          },
-                        }}
-                      />
-                    </Box>
-
+                    />
                     <Box
-                      display="flex"
-                      flexDirection="column"
-                      alignItems="flex-start"
+                      position="absolute"
+                      bottom={0}
+                      left={0}
+                      right={0}
+                      bgcolor="rgba(255, 255, 255, 0.85)"
                       padding={2}
                     >
                       <Typography variant="h6" fontWeight="bold" color="black">
                         {project.name}
                       </Typography>
-                      <Box display="flex" gap={1} mt={0}>
-                        {project.skills.map((skill, i) => (
-                          <FontAwesomeIcon
-                            key={`${project.name}-${skill.icon.iconName}-${i}`}
-                            icon={skill.icon}
-                            size="2x"
-                            style={{ color: skill.color }}
-                          />
-                        ))}
-                      </Box>
                     </Box>
                   </Card>
                 </motion.div>

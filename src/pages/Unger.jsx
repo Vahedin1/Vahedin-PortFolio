@@ -14,7 +14,14 @@ import HeaderMenuButton from "../components/Project-Header.jsx";
 const Unger = () => {
   const theme = useTheme();
   return (
-    <div style={{ margin: 0, padding: 0 }}>
+    <div
+      style={{
+        margin: 0,
+        padding: 0,
+        backgroundColor: "#0a0a0a", // dark background color for entire page
+        minHeight: "100vh",
+      }}
+    >
       <HeaderMenuButton />
       <Container
         maxWidth={false}
@@ -22,7 +29,7 @@ const Unger = () => {
         sx={{
           margin: 0,
           padding: 0,
-          backgroundColor: theme.palette.background.default,
+          backgroundColor: "0a0a0a",
         }}
       >
         {/* Large Cover Image with Link */}
@@ -37,93 +44,155 @@ const Unger = () => {
             sx={{
               position: "relative",
               width: "100%",
-              height: { xs: "50vh", md: "100vh" },
+              height: { xs: "79vh", md: "79vh" }, // reduced height
               backgroundImage: "url('/assets/unger-project/unger-home.png')",
               backgroundSize: "cover",
-              backgroundPosition: "top center",
+              backgroundPosition: "center top",
               backgroundRepeat: "no-repeat",
             }}
           />
         </Link>
 
-        {/* Project Info Bar — Styled like RAWMEN */}
         <Box
           sx={{
+            width: "100%",
+            backgroundColor: "#e3e3e3",
+            px: 2,
+            py: { xs: 4, md: 2 },
+            pt: { xs: 4, md: "20px" },
+            height: { xs: "auto", md: "200px" },
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
-            height: "100px",
-            backgroundColor: "#E0E0E0",
-            px: 2,
-            gap: 4,
-            mt: "-5px",
+            textAlign: "center",
           }}
         >
-          {/* Left: Author */}
-          <Typography
-            variant="h6"
-            sx={{
-              fontWeight: "bold",
-              fontFamily: "'Helvetica Neue', sans-serif",
-              fontSize: "1rem",
-              color: "#d60000",
-            }}
+          <Grid
+            container
+            direction={{ xs: "column", md: "row" }}
+            alignItems="center"
+            justifyContent="center"
+            spacing={{ xs: 2, md: 4 }}
+            flexWrap="wrap"
           >
-            VAHEDIN
-          </Typography>
+            {/* VAHEDIN */}
+            <Grid item>
+              <Typography
+                variant="h4"
+                sx={{
+                  fontWeight: 900,
+                  fontSize: { xs: "2rem", md: "2.2rem" },
+                  color: "#d60000",
+                  fontFamily: "'Helvetica Neue', sans-serif",
+                }}
+              >
+                VAHEDIN
+              </Typography>
+            </Grid>
 
-          {/* Divider */}
-          <Box
-            sx={{
-              width: "6px",
-              height: "60%",
-              backgroundColor: "#E0E0E0",
-              borderLeft: "4px solid #d69a7c", // beige-style bar
-            }}
-          />
+            <Grid item>
+              <Box
+                sx={{
+                  width: { xs: "350px", md: "4px" }, // horizontal on mobile, vertical on PC
+                  height: { xs: "4px", md: "60px" }, // small height for horizontal, tall height for vertical
+                  backgroundColor: "#aaa",
+                  borderRadius: "2px",
+                  mx: { xs: "auto", md: 2 },
+                  my: { xs: 2, md: "auto" },
+                }}
+              />
+            </Grid>
 
-          {/* Center: Project Title and Link */}
-          <Box sx={{ textAlign: "center" }}>
-            <Typography
-              variant="h5"
-              sx={{
-                fontWeight: "bold",
-                fontSize: "1.6rem",
-                color: "#081349", // UNGER BAU color
-                fontFamily: "'Helvetica Neue', sans-serif",
-              }}
-            >
-              UNGER BAU
-            </Typography>
+            {/* UNGER BAU Title & Link */}
+            <Grid item>
+              <Typography
+                variant="h5"
+                sx={{
+                  fontWeight: "bold",
+                  fontSize: "1.6rem",
+                  color: "#081349",
+                  fontFamily: "'Helvetica Neue', sans-serif",
+                }}
+              >
+                UNGER BAU
+              </Typography>
+              <Link
+                href="https://unger-bau.info"
+                target="_blank"
+                rel="noopener noreferrer"
+                underline="always"
+                sx={{
+                  fontSize: "1.1rem",
+                  color: "#0000ee",
+                  fontWeight: 500,
+                  textDecoration: "underline !important",
+                }}
+              >
+                unger-bau.info
+              </Link>
+            </Grid>
 
-            <Link
-              href="https://unger-bau.info"
-              target="_blank"
-              rel="noopener noreferrer"
-              underline="always"
-              sx={{
-                fontSize: "1.1rem",
-                color: "#0000ee",
-                fontFamily: "'Helvetica Neue', sans-serif",
-                fontWeight: 500,
-                textDecoration: "underline",
-              }}
-            >
-              unger-bau.info
-            </Link>
-          </Box>
+            {/* Year */}
+            <Grid item>
+              <Typography
+                variant="body1"
+                sx={{
+                  fontWeight: "medium",
+                  fontSize: "1rem",
+                  color: "#888",
+                }}
+              >
+                2024
+              </Typography>
+            </Grid>
 
-          {/* Right: Year */}
-          <Typography
-            variant="body1"
-            sx={{
-              fontWeight: "medium",
-              fontSize: "1rem",
-              color: "#888",
-            }}
-          >
-            2024
-          </Typography>
+            <Grid item>
+              <Box
+                sx={{
+                  width: { xs: "350px", md: "4px" }, // horizontal on mobile, vertical on PC
+                  height: { xs: "4px", md: "60px" }, // small height for horizontal, tall height for vertical
+                  backgroundColor: "#aaa",
+                  borderRadius: "2px",
+                  mx: { xs: "auto", md: 2 },
+                  my: { xs: 2, md: "auto" },
+                }}
+              />
+            </Grid>
+
+            {/* Icons */}
+            <Grid item>
+              <Grid
+                container
+                spacing={2}
+                direction="row"
+                justifyContent="center"
+                alignItems="center"
+                wrap="nowrap"
+              >
+                {[
+                  { src: "/assets/icons/react.svg", alt: "React" },
+                  { src: "/assets/icons/html5.svg", alt: "HTML5" },
+                  { src: "/assets/icons/css3.svg", alt: "CSS3" },
+                  { src: "/assets/icons/javascript.svg", alt: "JavaScript" },
+                  { src: "/assets/icons/materialui.svg", alt: "Material UI" },
+                ].map((icon, index) => (
+                  <Grid item key={index}>
+                    <Box
+                      component="img"
+                      src={icon.src}
+                      alt={icon.alt}
+                      sx={{
+                        width: 40,
+                        height: 40,
+                        transition: "transform 0.3s",
+                        "&:hover": { transform: "scale(1.15)" },
+                      }}
+                    />
+                  </Grid>
+                ))}
+              </Grid>
+            </Grid>
+          </Grid>
         </Box>
 
         {/* Description Section */}
@@ -138,40 +207,21 @@ const Unger = () => {
           }}
         >
           <Box sx={{ marginBottom: 3 }}>
-            <Typography variant="h4" fontWeight="bold" color="cyan">
-              Description:
-            </Typography>
-            <Typography variant="body1">
+            <Typography
+              variant="body1"
+              sx={{ fontSize: { xs: "1rem", md: "2rem" }, mt: 2 }}
+            >
               Unger-Bau.info is a professional website built for a construction
               business, offering masonry and reinforced concrete construction
-              services.
+              services. The platform provides a reliable digital presence for
+              clients looking to engage with a trusted local construction
+              partner.The project is designed to deliver a clean and modern user
+              experience, optimized for both desktop and mobile devices. It
+              includes a well-structured services overview, a dedicated contact
+              section, and a company background page — all styled with a strong,
+              professional visual identity that reflects the quality and
+              reliability of Unger Bau's work.
             </Typography>
-            <Typography variant="body1">
-              The project is designed to provide a clear and modern user
-              interface for clients to explore the company's services and
-              contact information.
-            </Typography>
-          </Box>
-
-          <Box sx={{ marginBottom: 5 }}>
-            <Typography variant="h4" fontWeight="bold" color="cyan">
-              Key Features:
-            </Typography>
-            <Typography variant="body1">
-              Modern and Responsive Design
-            </Typography>
-            <Typography variant="body1">
-              Clear and Intuitive Navigation
-            </Typography>
-          </Box>
-
-          <Box sx={{ marginBottom: 5 }}>
-            <Typography variant="h4" fontWeight="bold" color="cyan">
-              Built Using:
-            </Typography>
-            <Typography variant="body1">JavaScript</Typography>
-            <Typography variant="body1">React</Typography>
-            <Typography variant="body1">MUI (Material-UI)</Typography>
           </Box>
         </Box>
 
@@ -184,6 +234,8 @@ const Unger = () => {
             flexDirection: "column",
             gap: 3,
             my: 5,
+            mb: 0,
+            pb: 0,
           }}
         >
           {[
