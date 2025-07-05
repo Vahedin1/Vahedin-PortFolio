@@ -216,13 +216,13 @@ const Home = () => {
                   <strong>Languages:</strong>
                 </Typography>
                 <Box component="ul" sx={{ pl: 3, mt: 0 }}>
-                  <Typography variant="body2" color="text.primary">
+                  <Typography variant="body1" color="text.primary">
                     English
                   </Typography>
-                  <Typography variant="body2" color="text.primary">
+                  <Typography variant="body1" color="text.primary">
                     Serbian
                   </Typography>
-                  <Typography variant="body2" color="text.primary">
+                  <Typography variant="body1" color="text.primary">
                     Bosnian
                   </Typography>
                 </Box>
