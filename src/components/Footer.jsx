@@ -5,15 +5,22 @@ import { faLinkedin, faGithub } from "@fortawesome/free-brands-svg-icons";
 import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import { useTheme } from "@mui/material/styles";
 import { useLocation } from "react-router-dom";
+import { useMediaQuery } from "@mui/material";
 
 const Footer = () => {
   const theme = useTheme();
   const location = useLocation();
 
-  const backgroundImage =
-    location.pathname === "/projects"
-      ? "url('/assets/backgrounds/Footer-Blue-Yellow.png')"
-      : "url('/assets/backgrounds/Footer-Blue.png')";
+  const isLargeScreen = useMediaQuery("(min-width:1400px)");
+  const normalizedPath = location.pathname.replace(/\/$/, "");
+
+  const isExactProjectsPage = normalizedPath === "/projects";
+
+  const backgroundImage = isExactProjectsPage
+    ? isLargeScreen
+      ? "url('/assets/backgrounds/Footer-Blue-Yellow 1800.png')"
+      : "url('/assets/backgrounds/Footer-Blue-Yellow 1400.png')"
+    : "url('/assets/backgrounds/Footer-Blue.png')";
 
   const hideFooter = location.pathname === "/projects/unger";
 
