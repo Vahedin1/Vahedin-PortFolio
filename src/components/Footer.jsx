@@ -36,7 +36,7 @@ const Footer = () => {
         color: "white",
         paddingBottom: "20px",
         backgroundImage,
-        backgroundSize: "cover", // responsive
+        backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
         width: "100%",
@@ -53,8 +53,8 @@ const Footer = () => {
         >
           FOLLOW ME
         </Typography>
-        
-        {/* Icon Section*/}
+
+        {/* Icon */}
         <Box sx={{ display: "flex", gap: 2, justifyContent: "center" }}>
           <IconButton
             component="a"
@@ -84,7 +84,7 @@ const Footer = () => {
         </Box>
       </Box>
 
-      {/* Link/Author Section */}
+      {/* Link */}
       <Typography
         variant="body2"
         sx={{
@@ -100,7 +100,6 @@ const Footer = () => {
   );
 };
 
-// Reusable icon button style
 const iconButtonStyle = (theme) => ({
   backgroundColor: theme.palette.primary.main,
   color: theme.palette.background.default,

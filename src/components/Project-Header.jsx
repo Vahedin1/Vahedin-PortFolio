@@ -40,7 +40,7 @@ const HeaderMenuButton = () => {
               transform: "translateX(-50%) scale(1.25)",
             },
           }}
-          onClick={handleClick} // Make sure toggleMenu exists!
+          onClick={handleClick}
         >
           <CloseIcon fontSize="inherit" />
         </IconButton>

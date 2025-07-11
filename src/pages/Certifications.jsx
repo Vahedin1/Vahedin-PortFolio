@@ -18,7 +18,7 @@ const certifications = [
     issuer: "ITAcademy",
     validationNumber: "033267",
     images: {
-      mobile: "/assets/certification-mobile.jpeg", // fallback to the single image
+      mobile: "/assets/certification-mobile.jpeg",
       pc: "/assets/certification-pc.png",
     },
     showValidationButton: true,

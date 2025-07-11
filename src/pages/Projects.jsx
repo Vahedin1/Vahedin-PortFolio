@@ -236,7 +236,7 @@ const Projects = () => {
                       bottom={0}
                       left={0}
                       right={0}
-                      bgcolor="white" // solid white, no transparency
+                      bgcolor="white"
                       padding={2}
                       textAlign="center"
                     >

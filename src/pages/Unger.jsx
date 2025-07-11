@@ -18,7 +18,7 @@ const Unger = () => {
       style={{
         margin: 0,
         padding: 0,
-        backgroundColor: "#0a0a0a", // bg color for page
+        backgroundColor: "#0a0a0a",
         minHeight: "100vh",
       }}
     >
@@ -29,7 +29,7 @@ const Unger = () => {
         sx={{
           margin: 0,
           padding: 0,
-          backgroundColor: "0a0a0a", // bgc color for page
+          backgroundColor: "0a0a0a",
         }}
       >
         {/* Large Cover Image with Link */}
@@ -44,7 +44,7 @@ const Unger = () => {
             sx={{
               position: "relative",
               width: "100%",
-              height: { xs: "79vh", md: "79vh" }, 
+              height: { xs: "79vh", md: "79vh" },
               backgroundImage: "url('/assets/unger-project/unger-home.png')",
               backgroundSize: "cover",
               backgroundPosition: "center top",
@@ -52,7 +52,6 @@ const Unger = () => {
             }}
           />
         </Link>
-
 
         {/* White Big Info Box*/}
         <Box
@@ -96,8 +95,8 @@ const Unger = () => {
             <Grid item>
               <Box
                 sx={{
-                  width: { xs: "350px", md: "4px" }, // horizontal on mobile, vertical on PC
-                  height: { xs: "4px", md: "60px" }, // small height for horizontal, tall height for vertical
+                  width: { xs: "350px", md: "4px" },
+                  height: { xs: "4px", md: "60px" },
                   backgroundColor: "#aaa",
                   borderRadius: "2px",
                   mx: { xs: "auto", md: 2 },
@@ -152,8 +151,8 @@ const Unger = () => {
             <Grid item>
               <Box
                 sx={{
-                  width: { xs: "350px", md: "4px" }, // horizontal on mobile, vertical on PC
-                  height: { xs: "4px", md: "60px" }, // small height for horizontal, tall height for vertical
+                  width: { xs: "350px", md: "4px" },
+                  height: { xs: "4px", md: "60px" },
                   backgroundColor: "#aaa",
                   borderRadius: "2px",
                   mx: { xs: "auto", md: 2 },

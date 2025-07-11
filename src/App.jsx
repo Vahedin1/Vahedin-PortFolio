@@ -12,7 +12,6 @@ import { Box } from "@mui/material";
 import "./App.css";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 
-// Theme config
 const theme = createTheme({
   palette: {
     primary: {
@@ -55,7 +54,7 @@ function App() {
       }}
     >
       {!hideNavbar && (
-        <Navbar isHome={["/", "/certifications",  ].includes(location.pathname)} />
+        <Navbar isHome={["/", "/certifications"].includes(location.pathname)} />
       )}
 
       <Box sx={{ flex: 1, mt: isHome ? "-5px" : "0px" }}>
