@@ -12,6 +12,7 @@ import { useTheme } from "@mui/material/styles";
 import { useNavigate, useLocation } from "react-router-dom";
 import DownloadIcon from "@mui/icons-material/Download";
 import { motion } from "framer-motion";
+import LocationOnIcon from "@mui/icons-material/LocationOn";
 
 const skills = [
   {
@@ -49,6 +50,14 @@ const skills = [
     skills: [
       { name: "Test Automation & QA", level: 40 },
       { name: "Graphic App Development (Tkinter/PyQt)", level: 60 },
+    ],
+  },
+  {
+    category: "Languages",
+    skills: [
+      { name: "English", level: 80 },
+      { name: "Serbian", level: 100 },
+      { name: "Bosnian", level: 100 },
     ],
   },
 ];
@@ -163,79 +172,58 @@ const Home = () => {
             />
           </Box>
           {/*Introduction Section */}
-          <Typography
-            variant="h4"
-            fontWeight="bold"
-            color="primary"
-            gutterBottom
-          >
-            Hi, I'm Vahedin Hamidović
-          </Typography>
-
-          <Typography variant="body1" color="text.primary" paragraph>
-            Python & Front-End Web Developer
-          </Typography>
-
-          <Typography variant="body1" color="text.primary" paragraph>
-            I am a passionate{" "}
-            <strong>Python and Front-End Web Developer</strong> based in Serbia.
-            <br />
-            I've completed a comprehensive Python Developer program at{" "}
-            <strong>ITAcademy</strong>.
-          </Typography>
-
-          {/* Grid Info Section */}
-          <Box sx={{ mt: 2 }}>
-            <Grid
-              container
-              spacing={2}
-              direction={{ xs: "column", sm: "row" }}
-              alignItems="center"
+          <Box sx={{ textAlign: "center", maxWidth: 600, mx: "auto" }}>
+            <Typography
+              variant="h4"
+              fontWeight="bold"
+              color="primary"
+              gutterBottom
             >
-              {/* Left column */}
-              <Grid item xs={12} sm={6}>
-                <Box
-                  component="ul"
-                  sx={{ pl: 3, mt: 0, textAlign: "left", listStyle: "none" }}
+              Hi, I'm Vahedin Hamidović
+            </Typography>
+
+            <Typography variant="body1" color="text.primary" paragraph>
+              Python & AI Developer
+            </Typography>
+
+            <Typography variant="body1" color="text.primary" paragraph>
+              I am a passionate <strong>Python & AI Developer</strong> based in{" "}
+              <Box
+                component="span"
+                sx={{ display: "inline-flex", alignItems: "center", gap: 1 }}
+              >
+                {/* You can add location icon here if you want */}
+                <Typography
+                  variant="body1"
+                  color="text.primary"
+                  component="span"
                 >
-                  <Typography variant="body1" color="text.primary" gutterBottom>
-                    <strong>Country:</strong> Serbia
-                  </Typography>
-                  <Typography variant="body1" color="text.primary" gutterBottom>
-                    <strong>City:</strong> Sjenica
-                  </Typography>
-                  <Typography variant="body1" color="text.primary" gutterBottom>
-                    <strong>Age:</strong> 21
-                  </Typography>
-                </Box>
-              </Grid>
-
-              {/* Right column */}
-              <Grid item xs={12} sm={6}>
-                <Typography variant="body1" color="text.primary" gutterBottom>
-                  <strong>Languages:</strong>
+                  Sjenica, Serbia
                 </Typography>
-                <Box component="ul" sx={{ pl: 3, mt: 0 }}>
-                  <Typography variant="body1" color="text.primary">
-                    English
-                  </Typography>
-                  <Typography variant="body1" color="text.primary">
-                    Serbian
-                  </Typography>
-                  <Typography variant="body1" color="text.primary">
-                    Bosnian
-                  </Typography>
-                </Box>
-              </Grid>
-            </Grid>
+              </Box>
+              .
+              <br />
+              I've completed a comprehensive Python Developer program at{" "}
+              <strong>ITAcademy</strong>.
+            </Typography>
 
-            {/* Email below the grid */}
+            {/* Grid Info Section */}
             <Box sx={{ mt: 2 }}>
               <Typography variant="body1" color="text.primary" gutterBottom>
+                Open to remote work opportunities worldwide
+              </Typography>
+
+              <Typography
+                variant="body1"
+                color="text.primary"
+                gutterBottom
+                sx={{ mt: 2 }}
+              >
                 <strong>Email:</strong> hamidovicvahedin1@gmail.com
               </Typography>
             </Box>
           </Box>
+
           <Button
             variant="contained"
             color="secondary"
