@@ -153,8 +153,8 @@ const Home = () => {
               src="/assets/Vahedin.png"
               alt="Vahedin Hamidović"
               sx={{
-                width: 120,
-                height: 120,
+                width: 220,
+                height: 220,
                 borderRadius: "50%",
                 objectFit: "cover",
                 border: `3px solid ${theme.palette.primary.main}`,
